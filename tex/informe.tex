@@ -1,0 +1,426 @@
+\documentclass[a4paper, 10pt, twoside]{article}
+
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, es-ucroman, es-noquoting]{babel}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{verbatim}
+\usepackage{fancyvrb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{enumitem} % Provee macro \setlist
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{lscape}
+\usepackage{xspace}
+\usepackage{qtree}
+\usepackage[toc, page]{appendix}
+
+
+%%%%%%%%%% Constantes - Inicio %%%%%%%%%%
+\newcommand{\titulo}{Trabajo Práctico 2}
+\newcommand{\materia}{Ingeniería de Software II}
+\newcommand{\integrantes}{Almansi · Gasperi Jabalera · Russo · Tagliavini Ponce}
+\newcommand{\cuatrimestre}{Primer Cuatrimestre de 2015}
+%%%%%%%%%% Constantes - Fin %%%%%%%%%%
+
+
+%%%%%%%%%% Configuración de Fancyhdr - Inicio %%%%%%%%%%
+\pagestyle{fancy}
+\thispagestyle{fancy}
+\lhead{\titulo\ · \materia}
+\rhead{\integrantes}
+\renewcommand{\footrulewidth}{0.4pt}
+\cfoot{\thepage /\pageref{LastPage}}
+
+\fancypagestyle{caratula} {
+   \fancyhf{}
+   \cfoot{\thepage /\pageref{LastPage}}
+   \renewcommand{\headrulewidth}{0pt}
+   \renewcommand{\footrulewidth}{0pt}
+}
+%%%%%%%%%% Configuración de Fancyhdr - Fin %%%%%%%%%%
+
+
+%%%%%%%%%% Miscelánea - Inicio %%%%%%%%%%
+% Evita que el documento se estire verticalmente para ocupar el espacio vacío
+% en cada página.
+\raggedbottom
+
+% Separación entre párrafos.
+\setlength{\parskip}{0.5em}
+
+% Separación entre elementos de listas.
+\setlist{itemsep=0.5em}
+
+% Asigna la traducción de la palabra 'Appendices'.
+\renewcommand{\appendixtocname}{Apéndices}
+\renewcommand{\appendixpagename}{Apéndices}
+
+\newcommand{\diagrama}[1]{
+  \begin{center}
+    \includegraphics[width=16cm]{#1}
+  \end{center}
+}
+
+\newcommand{\diagramadeancho}[2]{
+  \begin{center}
+    \includegraphics[width=#1]{#2}
+  \end{center}
+}
+
+\newcommand{\riesgo}[7]{
+  \underline{Riesgo {#1}:}
+  \begin{itemize}   
+    \item \textbf{Descripción:} {#2}
+    \item \textbf{Probablidad:} {#3}
+    \item \textbf{Impacto:} {#4}
+    \item \textbf{Exposición:} {#5}
+    \item \textbf{Mitigación:} {#6}
+    \item \textbf{Plan de contingencia:} {#7}
+  \end{itemize}
+}
+
+\newcommand{\escenario}[7] {
+  \textit{{#1}}
+  \begin{itemize}
+    \item \textbf{Fuente:} {#2}
+    \item \textbf{Estímulo:} {#3}
+    \item \textbf{Entorno:} {#4}
+    \item \textbf{Artefacto:} {#5}
+    \item \textbf{Respuesta:} {#6}
+    \item \textbf{Medición:} {#7}
+  \end{itemize}
+}
+
+%%%%%%%%%% Miscelánea - Fin %%%%%%%%%%
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Carátula                                                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\thispagestyle{caratula}
+
+\begin{center}
+
+\includegraphics[height=2cm]{DC.png} 
+\hfill
+\includegraphics[height=2cm]{UBA.jpg} 
+
+\vspace{2cm}
+
+Departamento de Computación,\\
+Facultad de Ciencias Exactas y Naturales,\\
+Universidad de Buenos Aires
+
+\vspace{4cm}
+
+\begin{Huge}
+\titulo
+\end{Huge}
+
+\vspace{0.5cm}
+
+\begin{Large}
+\materia
+\end{Large}
+
+\vspace{1cm}
+
+\cuatrimestre
+
+\vspace{4cm}
+
+\begin{tabular}{|c|c|c|}
+\hline
+Apellido y Nombre & LU & E-mail\\
+\hline
+Almansi, Emilio Guido         & 674/12 & ealmansi@gmail.com\\
+Gasperi Jabalera, Fernando    & 56/09  & fgasperijabalera@gmail.com\\
+Russo, Christian              & 679/10 & christian.russo8@gmail.com\\
+Tagliavini Ponce, Guido       & 783/11 & guido.tag@gmail.com\\
+\hline
+\end{tabular}
+
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Introducción                                                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Introducción}
+
+Sed sit amet leo sit amet est viverra fermentum sed ac felis. Phasellus ultrices porttitor dolor, quis vehicula felis porta eget. Vestibulum porttitor, quam sit amet pellentesque lobortis, enim velit ullamcorper sapien, eget convallis orci odio id neque. Sed malesuada, diam sit amet hendrerit semper, augue libero sagittis quam, non tincidunt est nulla ut nibh. Donec risus justo, congue sed diam eu, rhoncus sollicitudin nibh. Duis vulputate euismod augue, vel bibendum ex. Sed sed molestie justo. Vivamus ac nibh nec justo bibendum venenatis sed ac mauris. Aliquam a tempus lacus. Vestibulum mollis sapien in fermentum lobortis. Etiam rhoncus, dolor id tristique facilisis, nisi magna iaculis mauris, semper malesuada dolor ante vitae eros. Phasellus sed dui a turpis placerat cursus sed at mauris. Vivamus commodo magna ut ex pharetra volutpat.
+
+Nam urna dolor, semper vel neque sit amet, pellentesque tristique magna. Aenean porta urna ut massa tempus auctor eu sit amet leo. Cras vestibulum ullamcorper nisl id pharetra. Maecenas nec quam in urna pulvinar aliquet. Nulla felis ligula, sodales ullamcorper suscipit ac, mollis at eros. Cras tortor dolor, ornare id ipsum vel, dictum lobortis ipsum. Sed in ante hendrerit, auctor dui sit amet, gravida mauris. Donec magna magna, varius in gravida in, luctus nec massa.
+
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Casos de uso                                                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Casos de uso}
+
+Donec non dolor pellentesque, luctus quam in, imperdiet turpis. Pellentesque vehicula sed quam nec imperdiet. Morbi sodales sollicitudin odio ut vehicula. Morbi id blandit arcu, et viverra metus. Cras sed ullamcorper urna. Nulla aliquet orci quam, vel ultrices elit fringilla quis. Etiam tempor venenatis diam, eget vehicula eros scelerisque mattis. Nam sed lorem pretium, commodo lacus a, sodales nunc. Praesent pretium et erat cursus fermentum. Aenean accumsan lectus fermentum sodales dignissim. Nunc at eros id urna mattis condimentum id vitae ligula.
+
+\begin{itemize}
+
+  \item \textbf{In ut nulla erat.}
+  \begin{itemize}
+    \item Cras ut cursus tortor.
+    \item Sed ut massa at sapien euismod iaculis sit amet ac justo.
+    \item Praesent a euismod metus.
+  \end{itemize}
+
+  \item \textbf{Nullam id mattis erat.}
+  \begin{itemize}
+    \item Integer id nisi tempus, consectetur neque eu, volutpat libero.
+    \item Pellentesque nec justo maximus massa elementum semper.
+    \item Nam eu aliquam felis.
+    \item Morbi maximus dapibus eros, in feugiat leo sodales eget.
+    \item Mauris volutpat, erat in posuere dignissim, quam magna iaculis neque, a aliquam purus nisl ac purus.
+    \item Vivamus ac placerat mi, consequat lobortis purus.
+    \item Etiam finibus facilisis velit ut luctus.
+  \end{itemize}
+
+  \item \textbf{Morbi non nunc massa.}
+  \begin{itemize}
+    \item Phasellus elit leo, iaculis dapibus ante in, dignissim pretium massa.
+    \item Cras vel blandit ipsum, a pellentesque ipsum.
+    \item Sed convallis porta nibh, vitae consectetur erat volutpat vitae.
+  \end{itemize}
+
+\end{itemize}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Planificación                                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Planificación}
+
+\subsection{Iteraciones}
+Quisque quis ultrices mi. Nunc fringilla velit ut ullamcorper venenatis. Nulla facilisi. Praesent pulvinar suscipit congue. Aliquam finibus eu turpis id pharetra. Nam et magna a purus hendrerit lobortis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque quis enim placerat, euismod odio sed, pretium ligula. Praesent commodo id enim in fringilla. Vivamus dignissim nisl ac diam suscipit tempus. Sed euismod eleifend dolor, in pharetra magna semper sed. Suspendisse elementum id felis in suscipit. Nam ut arcu dignissim, ultricies lorem eu, pretium erat.
+
+\subsubsection{Fase de iniciación}
+Sed in blandit nisl. Proin a fermentum metus. Pellentesque imperdiet urna purus, vitae interdum ante luctus at. Integer porttitor eget justo eu molestie. Maecenas nec rhoncus magna. Sed a nunc tempus, condimentum sem ut, volutpat dolor.
+
+\subsubsection{Fase de elaboración}
+
+\textbf{Primera iteración} [3 semanas]
+\begin{enumerate}
+\item Fusce molestie urna ac ante commodo scelerisque.
+\item Etiam et eros magna.
+\item Aenean id finibus libero, vitae sollicitudin elit.
+\item Maecenas a ex tempus, porttitor erat sit amet, imperdiet dui.
+\end{enumerate}
+
+\textbf{Segunda iteración} [5 semanas]
+\begin{enumerate}
+\item Aliquam id volutpat libero.
+\item Ut congue purus id arcu posuere dapibus.
+\item Etiam ullamcorper a odio ac iaculis.
+\item Nam est lacus, molestie elementum elit pulvinar, blandit interdum orci.
+\end{enumerate}
+
+\textbf{Tercera iteración} [5 semanas]
+\begin{enumerate}
+\item Duis dignissim id neque quis rutrum.
+\item Nunc a quam metus.
+\item Nunc elit lorem, commodo quis dolor et, lacinia ullamcorper sapien.
+\end{enumerate}
+
+\textbf{Cuarta iteración} [4 semanas]
+\begin{enumerate}
+\item Suspendisse eleifend vehicula elit vitae pulvinar.
+\item Mauris condimentum mattis purus a fermentum.
+\item Cras quis nisl id arcu ultrices lacinia.
+\item Sed in scelerisque tortor.
+\end{enumerate}
+
+\textbf{Quinta iteración} [4 semanas]
+\begin{enumerate}
+\item Curabitur ornare feugiat lacinia.
+\item Etiam consectetur lorem et finibus pulvinar.
+\item Etiam nisi elit, euismod non sem efficitur, molestie gravida turpis.
+\item Donec a faucibus purus, non ornare tellus.
+\end{enumerate}
+
+\textbf{Sexta iteración} [4 semanas]
+\begin{enumerate}
+\item Integer non libero turpis.
+\item Morbi a elementum enim.
+\item Nullam id turpis feugiat metus viverra venenatis.
+\item Cras in turpis ex.
+\end{enumerate}
+
+\subsubsection{Fase de construcción}
+Pellentesque in tellus id dui aliquam commodo. Sed aliquet felis mi, sit amet hendrerit elit consectetur vitae. Cras semper felis orci, at suscipit sem sagittis eu. Praesent convallis lectus eu nisi scelerisque, at posuere mauris suscipit. Phasellus ornare, lectus sit amet placerat convallis, metus nulla aliquam ipsum, eu ornare erat tortor eget tortor. Ut ut ultrices elit. Cras porta, neque accumsan scelerisque interdum, magna dolor semper velit, sit amet feugiat nisl mauris et est. Praesent semper quis metus quis sodales.
+
+\subsubsection{Fase de transición}
+Vestibulum fermentum posuere sapien, eget congue est mollis ut. Sed ac rutrum purus, non placerat urna. Donec sollicitudin, ex sed auctor eleifend, nibh tortor venenatis metus, a ultricies tellus libero et sapien. Maecenas nec quam et enim euismod placerat et nec libero. Proin vitae mauris imperdiet, tincidunt enim ut, luctus augue. Nunc sed malesuada quam. Curabitur tristique faucibus scelerisque.
+
+\subsection{Alcance de casos de usos de la primera iteración}
+\textbf{Fusce molestie urna ac ante commodo scelerisque.}
+
+Nulla ut dignissim mi, eget congue enim. Pellentesque sapien nisi, gravida sit amet magna id, placerat efficitur lacus. Curabitur porta eros a neque semper, at hendrerit lorem iaculis. Aliquam auctor fermentum finibus. Curabitur euismod imperdiet lorem, non accumsan nisi lacinia at. Quisque in odio libero. Cras molestie viverra urna, vel gravida magna tristique ut. Fusce ultricies nisl id sagittis tristique. Nam sed diam ex.
+
+\textbf{Etiam et eros magna.}
+
+Aenean euismod erat tellus, sit amet porta enim blandit nec. Mauris malesuada felis et erat tristique luctus. Fusce ullamcorper odio eu molestie pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+
+
+\textbf{Aenean id finibus libero, vitae sollicitudin elit.}
+
+Cras ut erat eu tortor lacinia suscipit. Vestibulum mattis luctus diam at varius. Nulla pretium nunc iaculis mollis lacinia. Mauris ex mauris, tincidunt vel laoreet iaculis, tristique non elit. Vestibulum quis porta arcu. Praesent mi sapien, ullamcorper in pretium ut, varius vel ex.
+
+\textbf{Maecenas a ex tempus, porttitor erat sit amet, imperdiet dui.}
+
+Integer auctor aliquet libero a lacinia. Cras tempus, enim gravida vulputate porta, nunc neque feugiat nisi, ac aliquam erat lacus eu est. Curabitur massa nulla, rhoncus in imperdiet a, malesuada nec augue. Pellentesque vestibulum magna et hendrerit condimentum. Curabitur nec odio vitae nibh aliquam varius sed ut mauris.
+
+\subsection{Tareas CU Primera iteración}
+A continuación se detallan las tareas diagramadas para los casos de uso incluidos en la primera iteración con su respectiva estimación de horas hombre.
+\\
+
+\begin{tabular}{lp{13cm}l}
+  \hline
+  CU1 & Fusce molestie urna ac ante commodo scelerisque. & 140h \\
+  \hline
+  T01 & Curabitur lacus ante, imperdiet quis facilisis ac, blandit et lacus & 16h \\
+  T02 & Phasellus bibendum, eros nec condimentum aliquet, velit erat euismod purus, nec tempus orci risus id dui & 12h \\
+  T03 & Pellentesque vitae odio id erat condimentum ullamcorper vitae in turpis & 16h \\
+  T04 & Ut ac porttitor lectus, eget varius turpis & 8h \\
+  T05 & In vel orci vel lacus molestie convallis & 8h \\
+  T06 & Mauris a arcu turpis & 40h\\
+  T07 & Nullam nec nisi facilisis, bibendum purus at, vestibulum diam & 40h \\
+  \hline
+\end{tabular}
+
+\vspace{1em}
+
+\begin{tabular}{lp{13cm}l}
+  \hline
+  CU2 & Etiam et eros magna. & 42h \\
+  \hline
+  T01 & Nullam nibh diam, pharetra in dui vel, varius hendrerit risus & 8h \\
+  T02 & Duis posuere arcu vitae dolor sodales, eget maximus magna molestie & 4h \\
+  T03 & Donec dignissim sed orci vitae consectetur & 15h \\
+  T04 & Sed in sem molestie ligula gravida placerat & 15h \\
+  \hline
+\end{tabular}
+
+\vspace{1em}
+
+\begin{tabular}{lp{13cm}l}
+  \hline
+  CU3 & Aenean id finibus libero, vitae sollicitudin elit. & 160h \\
+  \hline
+  T01 & Quisque egestas purus at mollis lacinia. & 40h \\
+  T02 & In at tempor tortor & 40h \\
+  T03 & Praesent gravida arcu quis sagittis imperdiet & 40h \\
+  T04 & Donec at mauris nisl & 40h \\
+  \hline
+\end{tabular}
+
+\vspace{1em}
+
+\begin{tabular}{lp{13cm}l}
+  \hline
+  CU4 & Maecenas a ex tempus, porttitor erat sit amet, imperdiet dui. & 34h \\
+  \hline
+  T01 & Mauris aliquet tincidunt nisl & 4h \\
+  T02 & Sed vel massa aliquet tortor placerat pharetra et sit amet augue & 8h \\
+  T02 & Nulla ullamcorper tincidunt urna, vel pellentesque magna dignissim eu & 11h \\
+  T03 & Morbi et lorem sit amet ex eleifend aliquam & 11h \\
+  \hline
+\end{tabular}
+
+
+\subsection{Detalle Primera iteración}
+
+\begin{itemize}
+  \item \textbf{Identificación:} E1
+  \item \textbf{Tipo de iteración:} Elaboración
+  \item \textbf{Cantidad total de horas:} 480
+  \item \textbf{Tareas:}
+\begin{enumerate}
+  \item Duis posuere arcu vitae dolor sodales, eget maximus magna molestie (20h)
+  \item Donec dignissim sed orci vitae consectetur (12h)
+  \item Sed in sem molestie ligula gravida placerat (12h)
+  \item Quisque egestas purus at mollis lacinia. (10h)
+  \item In at tempor tortor (10h)
+  \item Praesent gravida arcu quis sagittis imperdiet (8h)
+  \item Donec at mauris nisl (32h)
+  \item Mauris aliquet tincidunt nisl (140h)
+  \item Sed vel massa aliquet tortor placerat pharetra et sit amet augue (42h)
+  \item Nulla ullamcorper tincidunt urna, vel pellentesque magna dignissim eu (160h)
+  \item Morbi et lorem sit amet ex eleifend aliquam (34h)
+\end{enumerate}
+\end{itemize}
+
+\subsection{Plan de Proyecto}
+Donec eu turpis nunc. Cras scelerisque arcu vel arcu commodo euismod. Pellentesque quis urna ac sapien pharetra vulputate ut non nulla. In vitae nisl id nibh varius condimentum. Sed luctus urna viverra leo hendrerit, nec consequat ligula elementum. Etiam lacinia metus in mi dictum, id faucibus mi gravida. Proin vitae massa sagittis, tristique diam vitae, aliquam quam. Mauris tristique turpis diam, rutrum pulvinar magna eleifend vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut sit amet quam et leo pulvinar lobortis. Phasellus a mattis ante. Proin in lorem quis velit facilisis lobortis sit amet eget arcu. Vestibulum pharetra velit nibh.
+
+\begin{landscape}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=20cm]{gantt.png}
+  \caption{Diagrama de Gantt de la 1era iteración con la asignación de tiempo}
+  \label{fig:gantt}
+\end{figure}
+\end{landscape}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Análisis de riesgo                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Análisis de riesgos}
+\label{riesgos:r1}
+\riesgo{1}
+    {Etiam sollicitudin sagittis ultrices.}
+    {Alta}
+    {Alto}
+    {Alta}
+    {Duis ullamcorper ornare augue, sed pellentesque nulla varius in.}
+    {Maecenas a tristique lorem, at mattis dui.}
+
+\riesgo{2}
+    {Suspendisse lacinia congue tortor, eu porta ex volutpat consequat.}
+    {Media}
+    {Medio}
+    {Medio}
+    {Nulla sed tempor nisl, sit amet eleifend metus.}
+    {Ut semper ultricies luctus.}
+
+\riesgo{3}
+    {Quisque vitae magna pellentesque, rhoncus erat in, imperdiet odio.}
+    {Alta}
+    {Alto}
+    {Alta}
+    {Nunc interdum sagittis sollicitudin.}
+    {Praesent blandit pharetra mi non aliquam.}
+
+\newpage
+
+\end{document}

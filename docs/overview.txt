@@ -1,0 +1,138 @@
+MODO “LIGA FANTASÍA TRADICIONAL”
+--------------------------------
+
+los desafíos ya no se deciden a través de la simulación directa de los partidos, sino del desempeño de los jugadores en partidos reales en las ligas.
+
+pueden incluirse todos los partidos de una fecha determinada de una liga, o un salteado de un conjunto de fechas cualesquiera, o incluso la liga o torneo completo.
+
+MODO SIMULACIÓN
+---------------
+
+se arman torneos de diferentes formatos con todos los equipos participantes
+
+la duración total “artificial” del torneo en semanas
+
+los partidos no se resuelven más de forma inmediata, si no que puedan “vivirse” como los reales
+
+se pretende extender las reglas utilizando a un comité de expertos para que cada deporte se asemeje aún más a la realidad.
+
+aumentar el caudal de redes sociales que se utilizan para “afectar” las estadísticas, e incluso los comentarios de los usuarios en los chats de los desafíos, e incluso los Instant Messages privados de los usuarios
+
+modificar el simulador para que provea un stream continuo de “minuto a minuto” mucho más detallado que el log de la versión anterior.
+
+Cualquier participante, incluso si no forma parte del desafío debería poder ver un partido simulado
+
+las simulaciones dejan de ser instantáneas
+
+duración similar a la de un partido normal
+
+
+MOTORES GRÁFICOS (para modo simulación)
+---------------------------------------
+
+compra de al menos dos motores gráficos diferentes que permita a los participantes ver el partido a partir del stream de salida del simulador
+
+un motor gráfico 3d + un módulo para transmitir a los dispositivos no soportados
+
+motor 2d, funciona para dispositivos móviles legacy
+
+incorporar ambos motores en la primera versión
+
+STREAMING DE PARTIDOS REALES
+----------------------------
+
+el estado de los partidos reales debe poder seguirse en vivo a través del sitio
+
+acceder a streams de videos de diferentes ligas
+
+el partido pueda seguirse legalmente a través de la plataforma
+
+dueños de los derechos de transmisión quieren poder vender espacios de publicidad en el sitio y acceder a algunos datos de preferencias/comportamiento de los usuarios, además de sus emails para efectuar campañas de marketing.
+
+DESAFÍOS
+--------
+
+los desafíos ahora pueden incluir un gran número de partidos, no sólo uno.
+
+administradores del sitio pueden crear desafíos
+
+ahora los desafíos pueden ser aceptados por miles de jugadores, que competirán cada uno con su equipo para salir vencedor.
+
+Una vez comenzado el desafío, ya no se pueden hacer cambios.
+
+cuenta regresiva para indicar el tiempo restante para el comienzo
+
+se debe poder ver quiénes son los participantes del desafío y el puesto actual del equipo del participante, actualizado minuto a minuto.
+
+los mejores 10.000 participantes de Argentina podrán acceder a una nueva lista de desafíos con los restantes 10.000 mejores jugadores de cada país del resto de Latinoamérica.
+
+los mejores 1.000 de Latam podrán competir en un nivel mundial con los 1.000 mejores de Europa, Asia, Norteamérica, África y Oceanía...
+
+administradores pueden hacer visibles desafíos de niveles superiores a usuarios que no tienen normalmente acceso para que el resto de los usuarios puedan seguirlos en vivo
+
+las finales deben poder transmitirse en vivo a los millones de usuarios del sitio
+
+CHAT
+----
+
+conversaciones que podrá tener con competidores amigos a modo de “Instant Messenger”.
+
+cada desafío tendrá un chat general para intercambiar mensajes con otros participantes
+
+DINERO
+------
+
+fichas de apuesta pasan a ser reemplazadas por dinero real
+
+los participantes deberán poder ingresar datos de una tarjeta de crédito o cuenta corriente (registrados por el sistema de forma segura)
+
+sistema debe poder debitar o acreditar dinero de forma inmediata
+
+el juego sigue permitiendo jugar gratis
+
+existirán desafíos que tengan una cuota de entrada, deberán tener una cantidad mínima de participantes, y repartirán un monto de dinero en premios
+
+los premios que se pagarán serán en relación al rango de posiciones en el que queda el equipo del jugador al terminar el desafío (ej: 1er puesto, 2do, 3ro, 4to a 10mo, 10 a 50, 50 a 200, 200 a 1000, etc.)
+
+Los desafíos “gratis” pueden otorgar premios como créditos no retirables para jugar, productos exclusivos de “partners”, tickets para eventos deportivos, etc...
+
+evitar en paises donde la legislacion prohibe este tipo de actividades: que el usuario acceda al sitio o que no puedan registrarse o bien registrarse, pero sólo jugar los desafíos gratuitos sin poder ganar premios o pudiendo ganar premios que no sean sumas de dinero.
+
+REGIONALIZACIÓN
+---------------
+
+alcance mundial
+
+el sistema sea utilizado por millones de personas de todo el planeta
+
+se llegue a ese número de suscriptos muy rápidamente
+
+uno de los países incluidos en la versión inicial debe ser China
+
+regionalizar la plataforma
+
+desafíos locales o nacionales
+
+facilitar la logística con los bancos, el idioma de los chats, los pagos en la moneda local, la entrega de premios, etc...
+
+RANKINGS
+--------
+
+El ranking de los jugadores más ganadores del prototipo se mantiene
+
+desafíos con muchos usuarios o muy largos en tiempo otorgarán mayor puntaje que los “mano a mano” convencionales
+
+los resultados de la región mundial no influirán en los del nivel regional, ni en los de nivel nacional o local
+
+campeones mundiales anuales
+
+plantea que cada vez que comience una nueva temporada o año, se reinicie el ranking del sitio.
+
+SEGURIDAD
+---------
+
+los administradores del más alto nivel de privilegios puede acceder a las cuentas de todos los participantes
+
+los administradores deberían ser capaces de ver los movimientos y el balance del sitio de juegos en cada región o a nivel global.
+
+transparencia movimientos de dinero y en el funcionamiento correcto de las simulaciones.
