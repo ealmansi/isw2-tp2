@@ -200,7 +200,7 @@ Donec non dolor pellentesque, luctus quam in, imperdiet turpis. Pellentesque veh
 
   \item \textbf{Servidor de Juego.}
   \begin{itemize}
-    \item Registrando nuevo usuario.
+    \item Guardando datos de nuevo usuario.
     \item Autenticando datos de usuario.
     \item Guardando datos cifrados de tarjeta / cuenta corriente de usuario.
     \item Dando de alta un nuevo desafío.
@@ -245,7 +245,7 @@ Sed in blandit nisl. Proin a fermentum metus. Pellentesque imperdiet urna purus,
 
 \textbf{Primera iteración} [n semanas]
 \begin{enumerate}
-\item Creando nuevo usuario.
+\item Guardando datos de nuevo usuario.
 \item Visualizando partido de un desafío.
 \item Transmitiendo datos de una simulación en proceso.
 \item Creando desafío.
@@ -263,7 +263,7 @@ Sed in blandit nisl. Proin a fermentum metus. Pellentesque imperdiet urna purus,
 \textbf{Tercera iteración} [n semanas]
 \begin{enumerate}
 \item Iniciando sesión de usuario.
-\item Registrando nuevo usuario.
+\item Guardando datos de nuevo usuario.
 \item Cobrando cuota de participación en desafío.
 \end{enumerate}
 
@@ -299,20 +299,20 @@ Pellentesque in tellus id dui aliquam commodo. Sed aliquet felis mi, sit amet he
 Vestibulum fermentum posuere sapien, eget congue est mollis ut. Sed ac rutrum purus, non placerat urna. Donec sollicitudin, ex sed auctor eleifend, nibh tortor venenatis metus, a ultricies tellus libero et sapien. Maecenas nec quam et enim euismod placerat et nec libero. Proin vitae mauris imperdiet, tincidunt enim ut, luctus augue. Nunc sed malesuada quam. Curabitur tristique faucibus scelerisque.
 
 \subsection{Alcance de casos de usos de la primera iteración}
-\textbf{Fusce molestie urna ac ante commodo scelerisque.}
+\textbf{Guardando datos de nuevo usuario.}
 
 Nulla ut dignissim mi, eget congue enim. Pellentesque sapien nisi, gravida sit amet magna id, placerat efficitur lacus. Curabitur porta eros a neque semper, at hendrerit lorem iaculis. Aliquam auctor fermentum finibus. Curabitur euismod imperdiet lorem, non accumsan nisi lacinia at. Quisque in odio libero. Cras molestie viverra urna, vel gravida magna tristique ut. Fusce ultricies nisl id sagittis tristique. Nam sed diam ex.
 
-\textbf{Etiam et eros magna.}
+\textbf{Visualizando partido de un desafío.}
 
 Aenean euismod erat tellus, sit amet porta enim blandit nec. Mauris malesuada felis et erat tristique luctus. Fusce ullamcorper odio eu molestie pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
 
 
-\textbf{Aenean id finibus libero, vitae sollicitudin elit.}
+\textbf{Transmitiendo datos de una simulación en proceso.}
 
 Cras ut erat eu tortor lacinia suscipit. Vestibulum mattis luctus diam at varius. Nulla pretium nunc iaculis mollis lacinia. Mauris ex mauris, tincidunt vel laoreet iaculis, tristique non elit. Vestibulum quis porta arcu. Praesent mi sapien, ullamcorper in pretium ut, varius vel ex.
 
-\textbf{Maecenas a ex tempus, porttitor erat sit amet, imperdiet dui.}
+\textbf{Creando desafío.}
 
 Integer auctor aliquet libero a lacinia. Cras tempus, enim gravida vulputate porta, nunc neque feugiat nisi, ac aliquam erat lacus eu est. Curabitur massa nulla, rhoncus in imperdiet a, malesuada nec augue. Pellentesque vestibulum magna et hendrerit condimentum. Curabitur nec odio vitae nibh aliquam varius sed ut mauris.
 
@@ -322,28 +322,14 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU1 & Fusce molestie urna ac ante commodo scelerisque. & 140h \\
+  CU1 & Guardando datos de nuevo usuario. & 140h \\
   \hline
-  T01 & Curabitur lacus ante, imperdiet quis facilisis ac, blandit et lacus & 16h \\
-  T02 & Phasellus bibendum, eros nec condimentum aliquet, velit erat euismod purus, nec tempus orci risus id dui & 12h \\
-  T03 & Pellentesque vitae odio id erat condimentum ullamcorper vitae in turpis & 16h \\
-  T04 & Ut ac porttitor lectus, eget varius turpis & 8h \\
-  T05 & In vel orci vel lacus molestie convallis & 8h \\
-  T06 & Mauris a arcu turpis & 40h\\
-  T07 & Nullam nec nisi facilisis, bibendum purus at, vestibulum diam & 40h \\
-  \hline
-\end{tabular}
-
-\vspace{1em}
-
-\begin{tabular}{lp{13cm}l}
-  \hline
-  CU2 & Etiam et eros magna. & 42h \\
-  \hline
-  T01 & Nullam nibh diam, pharetra in dui vel, varius hendrerit risus & 8h \\
-  T02 & Duis posuere arcu vitae dolor sodales, eget maximus magna molestie & 4h \\
-  T03 & Donec dignissim sed orci vitae consectetur & 15h \\
-  T04 & Sed in sem molestie ligula gravida placerat & 15h \\
+  T01 & Definir motor de base de datos a utilizar. & 16h \\
+  T02 & Definir método de encriptación para contraseñas y datos sensibles. & 16h \\
+  T04 & Definir conjunto de datos a persistir por cada usuario. & 16h \\
+  T05 & Diseñar base de datos de usuarios. & 16h \\
+  T06 & Implementación de CU1 & 40h\\
+  T07 & Testing de CU1 & 40h\\
   \hline
 \end{tabular}
 
@@ -351,12 +337,15 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU3 & Aenean id finibus libero, vitae sollicitudin elit. & 160h \\
+  CU2 & Visualizando partido de un desafío. & 42h \\
   \hline
-  T01 & Quisque egestas purus at mollis lacinia. & 40h \\
-  T02 & In at tempor tortor & 40h \\
-  T03 & Praesent gravida arcu quis sagittis imperdiet & 40h \\
-  T04 & Donec at mauris nisl & 40h \\
+  T01 & Investigar tecnologías web a utilizar para el cliente web. & 8h \\
+  T02 & Investigar tecnologías a utilizar para los clientes móviles. & 8h \\
+  T03 & Desarrollar stubs de las aplicaciones web y móviles. & 8h \\
+  T04 & Integrar motor de gráficos 2D a la aplicación web. & 8h \\
+  T05 & Integrar motor de gráficos 2D a la aplicación móvil. & 8h \\
+  T06 & Implementación de una visualización de partido de prueba. & 8h \\
+  T07 & Testing de CU2 & 40h\\
   \hline
 \end{tabular}
 
@@ -364,12 +353,29 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU4 & Maecenas a ex tempus, porttitor erat sit amet, imperdiet dui. & 34h \\
+  CU3 & Transmitiendo datos de una simulación en proceso. & 160h \\
   \hline
-  T01 & Mauris aliquet tincidunt nisl & 4h \\
-  T02 & Sed vel massa aliquet tortor placerat pharetra et sit amet augue & 8h \\
-  T02 & Nulla ullamcorper tincidunt urna, vel pellentesque magna dignissim eu & 11h \\
-  T03 & Morbi et lorem sit amet ex eleifend aliquam & 11h \\
+  T01 & Investigar plataforma para el servidor de transmisión. & 40h \\
+  T02 & Definir la interfaz de comunicación con el servidor. & 40h \\
+  T03 & Desarrollar stub del servidor. & 40h \\
+  T04 & Implementar transmisión de datos de una simulación de prueba. & 40h \\
+  T05 & Desarrollar cliente simple de prueba. & 40h \\
+  T06 & Testing de CU3 & 40h\\
+  \hline
+\end{tabular}
+
+\vspace{1em}
+
+\begin{tabular}{lp{13cm}l}
+  \hline
+  CU4 & Creando desafío. & 34h \\
+  \hline
+  T01 & Definir motor de base de datos a utilizar contemplando la escalabilidad. & 16h \\
+  T02 & Definir conjunto de datos a persistir por cada desafío. & 16h \\
+  T03 & Investigar alternativas para la persistencia segura de datos del desafío. & 4h \\
+  T04 & Diseñar base de datos de desafíos. & 16h \\
+  T05 & Implementación de CU4 & 40h\\
+  T06 & Testing de CU4 & 40h\\
   \hline
 \end{tabular}
 
@@ -382,17 +388,31 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
   \item \textbf{Cantidad total de horas:} 480
   \item \textbf{Tareas:}
 \begin{enumerate}
-  \item Duis posuere arcu vitae dolor sodales, eget maximus magna molestie (20h)
-  \item Donec dignissim sed orci vitae consectetur (12h)
-  \item Sed in sem molestie ligula gravida placerat (12h)
-  \item Quisque egestas purus at mollis lacinia. (10h)
-  \item In at tempor tortor (10h)
-  \item Praesent gravida arcu quis sagittis imperdiet (8h)
-  \item Donec at mauris nisl (32h)
-  \item Mauris aliquet tincidunt nisl (140h)
-  \item Sed vel massa aliquet tortor placerat pharetra et sit amet augue (42h)
-  \item Nulla ullamcorper tincidunt urna, vel pellentesque magna dignissim eu (160h)
-  \item Morbi et lorem sit amet ex eleifend aliquam (34h)
+  \item Definir motor de base de datos a utilizar.
+  \item Definir método de encriptación para contraseñas y datos sensibles.
+  \item Definir conjunto de datos a persistir por cada usuario.
+  \item Diseñar base de datos de usuarios.
+  \item Implementación de CU1
+  \item Testing de CU1
+  \item Investigar tecnologías web a utilizar para el cliente web.
+  \item Investigar tecnologías a utilizar para los clientes móviles.
+  \item Desarrollar stubs de las aplicaciones web y móviles.
+  \item Integrar motor de gráficos 2D a la aplicación web.
+  \item Integrar motor de gráficos 2D a la aplicación móvil.
+  \item Implementación de una visualización de partido de prueba.
+  \item Testing de CU2
+  \item Investigar plataforma para el servidor de transmisión.
+  \item Definir la interfaz de comunicación con el servidor.
+  \item Desarrollar stub del servidor.
+  \item Implementar transmisión de datos de una simulación de prueba.
+  \item Desarrollar cliente simple de prueba.
+  \item Testing de CU3
+  \item Definir motor de base de datos a utilizar contemplando la escalabilidad.
+  \item Definir conjunto de datos a persistir por cada desafío.
+  \item Investigar alternativas para la persistencia segura de datos del desafío.
+  \item Diseñar base de datos de desafíos.
+  \item Implementación de CU4
+  \item Testing de CU4
 \end{enumerate}
 \end{itemize}
 
