@@ -238,10 +238,16 @@ Donec non dolor pellentesque, luctus quam in, imperdiet turpis. Pellentesque veh
 \section{Planificación}
 
 \subsection{Iteraciones}
-Quisque quis ultrices mi. Nunc fringilla velit ut ullamcorper venenatis. Nulla facilisi. Praesent pulvinar suscipit congue. Aliquam finibus eu turpis id pharetra. Nam et magna a purus hendrerit lobortis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque quis enim placerat, euismod odio sed, pretium ligula. Praesent commodo id enim in fringilla. Vivamus dignissim nisl ac diam suscipit tempus. Sed euismod eleifend dolor, in pharetra magna semper sed. Suspendisse elementum id felis in suscipit. Nam ut arcu dignissim, ultricies lorem eu, pretium erat.
+Dividimos los CU en distintas iteraciones, teniendo en cuenta diversos factores. El criterio principal fue seguir un estilo de desarrollo horizontal, en el sentido de desarrollar varios subsistemas en simult'aneo, en contraposici'on a un desarrollo por bloques, en el cual un subsistema no empieza a desarrollarse hasta que gran parte de otro est'e completado. Creemos que este estilo nos permitirá poder modificar más fácilmente los componentes, a medida que tengamos un mejor conocimiento sobre las interacciones entre ellos.
+
+Concretamente, en la primera iteraci'on busca desarrollar mínimamente la Aplicación Web/Móvil, el Servidor de Juego y el Sistema de Transmisión de Partidos, y algunas interacciones entre la Aplicación Web/Móvil y el Sistema de Transmisión de Partidos.
+
+En segundo lugar, tuvimos en cuenta el análisis de riesgos realizado, priorizando casos de uso que evalúen o ataquen en alguna medida a estos riesgos, no necesariamente proveyendo una solución. Concretamente, los riesgos encontrados son la confiabilidad de los motores gráficos, la confiabilidad de los clientes (en términos de calidad de hardware y conexión), y la seguridad de los datos almacenados.
+
+En la primera iteración comenzamos a probar el motor gráfico 2D tratando, apuntando a comenzar a evaluar el funcionamiento de dicho motor, y analizamos y desarrollamos estrategias para garantizar la seguridad de los datos de usuarios y desafíos.
 
 \subsubsection{Fase de iniciación}
-Sed in blandit nisl. Proin a fermentum metus. Pellentesque imperdiet urna purus, vitae interdum ante luctus at. Integer porttitor eget justo eu molestie. Maecenas nec rhoncus magna. Sed a nunc tempus, condimentum sem ut, volutpat dolor.
+Esta fase se compone del desarrollo realizado en el TP1.
 
 \subsubsection{Fase de elaboración}
 
@@ -295,10 +301,12 @@ Sed in blandit nisl. Proin a fermentum metus. Pellentesque imperdiet urna purus,
 \end{enumerate}
 
 \subsubsection{Fase de construcción}
-Pellentesque in tellus id dui aliquam commodo. Sed aliquet felis mi, sit amet hendrerit elit consectetur vitae. Cras semper felis orci, at suscipit sem sagittis eu. Praesent convallis lectus eu nisi scelerisque, at posuere mauris suscipit. Phasellus ornare, lectus sit amet placerat convallis, metus nulla aliquam ipsum, eu ornare erat tortor eget tortor. Ut ut ultrices elit. Cras porta, neque accumsan scelerisque interdum, magna dolor semper velit, sit amet feugiat nisl mauris et est. Praesent semper quis metus quis sodales.
+
+Consiste del desarrollo de cada uno de los casos de uso definidos en la fase de elaboración. Al terminar cada una de las iteraciones, deberíamos tener un software testeable. Al terminar todas las iteraciones, deberíamos tener el software que cumple con todas las especificaciones indicadas por el enunciado y los stakeholders.
 
 \subsubsection{Fase de transición}
-Vestibulum fermentum posuere sapien, eget congue est mollis ut. Sed ac rutrum purus, non placerat urna. Donec sollicitudin, ex sed auctor eleifend, nibh tortor venenatis metus, a ultricies tellus libero et sapien. Maecenas nec quam et enim euismod placerat et nec libero. Proin vitae mauris imperdiet, tincidunt enim ut, luctus augue. Nunc sed malesuada quam. Curabitur tristique faucibus scelerisque.
+
+Ya con un sistema que tiene todas las características especificadas implementadas, comienza a utilizarse también por usuarios reales. Esto permite detectar problemas y errores, que deben arreglarse en esta fase. Además, se provee la asistencia necesaria para aprender a menajar todos los aspectos del sistema y su mantenimiento.
 
 \subsection{Alcance de casos de usos de la primera iteración}
 \textbf{Guardando datos de nuevo usuario.}
