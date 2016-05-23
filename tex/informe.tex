@@ -244,7 +244,7 @@ Sed in blandit nisl. Proin a fermentum metus. Pellentesque imperdiet urna purus,
 
 \subsubsection{Fase de elaboración}
 
-\textbf{Primera iteración} [n semanas]
+\textbf{Primera iteración} [4 semanas]
 \begin{enumerate}
 \item Guardando datos de nuevo usuario.
 \item Visualizando partido de un desafío.
@@ -252,45 +252,45 @@ Sed in blandit nisl. Proin a fermentum metus. Pellentesque imperdiet urna purus,
 \item Creando desafío.
 \end{enumerate}
 
-\textbf{Segunda iteración} [n semanas]
-\begin{enumerate}
-\item Guardando datos cifrados de tarjeta / cuenta corriente de usuario.
-\item Autenticando datos de usuario.
-\item Ingresando a un desafío como participante.
-\item Cobrando apuestas de desafío.
-\item Transmitiendo un partido de desafío.
-\end{enumerate}
-
-\textbf{Tercera iteración} [n semanas]
+\textbf{Segunda iteración} [3 semanas]
 \begin{enumerate}
 \item Iniciando sesión de usuario.
-\item Guardando datos de nuevo usuario.
-\item Cobrando cuota de participación en desafío.
-\end{enumerate}
-
-\textbf{Cuarta iteración} [n semanas]
-\begin{enumerate}
+\item Autenticando datos de usuario.
 \item Ingresando datos de tarjeta / cuenta corriente.
-\item Dando de alta un nuevo desafío.
-\item Acreditando premios al usuario.
-\item Transmitiendo render de una simulación en proceso.
+\item Guardando datos cifrados de tarjeta / cuenta corriente de usuario.
 \end{enumerate}
 
-\textbf{Quinta iteración} [n semanas]
+\textbf{Tercera iteración} [2 semanas]
 \begin{enumerate}
-\item Visualizando desafíos disponibles.
+\item Dando de alta un nuevo desafío.
+\item Ingresando a un desafío como participante.
+\item Transmitiendo un partido de desafío.
+\item Guardando datos de nuevo usuario.
 \item Armando equipo para desafío.
-\item Visualizando saldo de usuario.
-\item Visualizando premios ganados del usuario.
-\item Acreditando ganancias por desafío ganado.
 \end{enumerate}
 
-\textbf{Sexta iteración} [n semanas]
+\textbf{Cuarta iteración} [4 semanas]
+\begin{enumerate}
+\item Visualizando saldo de usuario.
+\item Cobrando cuota de participación en desafío.
+\item Acreditando premios al usuario.
+\item Visualizando desafíos disponibles.
+\end{enumerate}
+
+\textbf{Quinta iteración} [3 semanas]
+\begin{enumerate}
+\item Cobrando apuestas de desafío.
+\item Visualizando premios ganados del usuario.
+\item Transmitiendo render de una simulación en proceso.
+\item Validando datos de tarjeta / cuenta corriente.
+\end{enumerate}
+
+\textbf{Sexta iteración} [4 semanas]
 \begin{enumerate}
 \item Transmitiendo un partido en vivo.
-\item Validando datos de tarjeta / cuenta corriente.
 \item Debitando monto a una tarjeta / cuenta corriente.
 \item Acreditando monto a una tarjeta / cuenta corriente.
+\item Acreditando ganancias por desafío ganado.
 \end{enumerate}
 
 \subsubsection{Fase de construcción}
@@ -336,30 +336,14 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU1 & Guardando datos de nuevo usuario. & 140h \\
+  CU1 & Guardando datos de nuevo usuario. & 114h \\
   \hline
-  T01 & Definir motor de base de datos a utilizar. & 16h \\
-  T02 & Definir método de encriptación para contraseñas y datos sensibles. & 16h \\
-  T04 & Definir conjunto de datos a persistir por cada usuario. & 16h \\
-  T05 & Diseñar base de datos de usuarios. & 16h \\
-  T06 & Implementación de CU1 & 40h\\
-  T07 & Testing de CU1 & 40h\\
-  \hline
-\end{tabular}
-
-\vspace{1em}
-
-\begin{tabular}{lp{13cm}l}
-  \hline
-  CU2 & Visualizando partido de un desafío. & 42h \\
-  \hline
-  T01 & Investigar tecnologías web a utilizar para el cliente web. & 8h \\
-  T02 & Investigar tecnologías a utilizar para los clientes móviles. & 8h \\
-  T03 & Desarrollar stubs de las aplicaciones web y móviles. & 8h \\
-  T04 & Integrar motor de gráficos 2D a la aplicación web. & 8h \\
-  T05 & Integrar motor de gráficos 2D a la aplicación móvil. & 8h \\
-  T06 & Implementación de una visualización de partido de prueba. & 8h \\
-  T07 & Testing de CU2 & 40h\\
+  T1.1 & Definir motor de base de datos a utilizar, contemplando la escalabilidad. & 8h \\
+  T1.2 & Definir método de encriptación para contraseñas y datos sensibles. & 10h \\
+  T1.4 & Definir conjunto de datos a persistir por cada usuario. & 16h \\
+  T1.5 & Diseñar base de datos de usuarios. & 10h \\
+  T1.6 & Implementación de CU1 & 40h\\
+  T1.7 & Testing de CU1 & 30h\\
   \hline
 \end{tabular}
 
@@ -367,14 +351,15 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU3 & Transmitiendo datos de una simulación en proceso. & 160h \\
+  CU2 & Visualizando partido de un desafío. & 161h \\
   \hline
-  T01 & Investigar plataforma para el servidor de transmisión. & 40h \\
-  T02 & Definir la interfaz de comunicación con el servidor. & 40h \\
-  T03 & Desarrollar stub del servidor. & 40h \\
-  T04 & Implementar transmisión de datos de una simulación de prueba. & 40h \\
-  T05 & Desarrollar cliente simple de prueba. & 40h \\
-  T06 & Testing de CU3 & 40h\\
+  T2.1 & Investigar tecnologías web a utilizar para el cliente web. & 16h \\
+  T2.2 & Investigar tecnologías a utilizar para los clientes móviles. & 16h \\
+  T2.3 & Desarrollar stubs de las aplicaciones web y móviles. & 8h \\
+  T2.4 & Integrar motor de gráficos 2D a la aplicación web. & 18h \\
+  T2.5 & Integrar motor de gráficos 2D a la aplicación móvil. & 18h \\
+  T2.6 & Implementación de una visualización de partido de prueba. & 45h \\
+  T2.7 & Testing de CU2 & 40h\\
   \hline
 \end{tabular}
 
@@ -382,14 +367,29 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU4 & Creando desafío. & 34h \\
+  CU3 & Transmitiendo datos de una simulación en proceso. & 103h \\
   \hline
-  T01 & Definir motor de base de datos a utilizar contemplando la escalabilidad. & 16h \\
-  T02 & Definir conjunto de datos a persistir por cada desafío. & 16h \\
-  T03 & Investigar alternativas para la persistencia segura de datos del desafío. & 4h \\
-  T04 & Diseñar base de datos de desafíos. & 16h \\
-  T05 & Implementación de CU4 & 40h\\
-  T06 & Testing de CU4 & 40h\\
+  T3.1 & Investigar plataforma para el servidor de transmisión. & 10h \\
+  T3.2 & Definir la interfaz de comunicación con el servidor. & 10h \\
+  T3.3 & Desarrollar stub del servidor. & 8h \\
+  T3.4 & Implementar transmisión de datos de una simulación de prueba. & 35h \\
+  T3.5 & Desarrollar cliente simple de prueba. & 10h \\
+  T3.6 & Testing de CU3 & 30h\\
+  \hline
+\end{tabular}
+
+\vspace{1em}
+
+\begin{tabular}{lp{13cm}l}
+  \hline
+  CU4 & Creando desafío. & 99h \\
+  \hline
+  T4.1 & Definir motor de base de datos a utilizar, contemplando la escalabilidad. & 8h \\
+  T4.2 & Definir conjunto de datos a persistir por cada desafío. & 10h \\
+  T4.3 & Investigar alternativas para la persistencia segura de datos del desafío. & 10h \\
+  T4.4 & Diseñar base de datos de desafíos. & 16h \\
+  T4.5 & Implementación de CU4 & 30h\\
+  T4.6 & Testing de CU4 & 25h\\
   \hline
 \end{tabular}
 
@@ -402,31 +402,31 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
   \item \textbf{Cantidad total de horas:} 480
   \item \textbf{Tareas:}
 \begin{enumerate}
-  \item Definir motor de base de datos a utilizar.
-  \item Definir método de encriptación para contraseñas y datos sensibles.
-  \item Definir conjunto de datos a persistir por cada usuario.
-  \item Diseñar base de datos de usuarios.
-  \item Implementación de CU1
-  \item Testing de CU1
-  \item Investigar tecnologías web a utilizar para el cliente web.
-  \item Investigar tecnologías a utilizar para los clientes móviles.
-  \item Desarrollar stubs de las aplicaciones web y móviles.
-  \item Integrar motor de gráficos 2D a la aplicación web.
-  \item Integrar motor de gráficos 2D a la aplicación móvil.
-  \item Implementación de una visualización de partido de prueba.
-  \item Testing de CU2
-  \item Investigar plataforma para el servidor de transmisión.
-  \item Definir la interfaz de comunicación con el servidor.
-  \item Desarrollar stub del servidor.
-  \item Implementar transmisión de datos de una simulación de prueba.
-  \item Desarrollar cliente simple de prueba.
-  \item Testing de CU3
-  \item Definir motor de base de datos a utilizar contemplando la escalabilidad.
-  \item Definir conjunto de datos a persistir por cada desafío.
-  \item Investigar alternativas para la persistencia segura de datos del desafío.
-  \item Diseñar base de datos de desafíos.
-  \item Implementación de CU4
-  \item Testing de CU4
+  \item Definir motor de base de datos a utilizar. (8h)
+  \item Definir método de encriptación para contraseñas y datos sensibles. (10h)
+  \item Definir conjunto de datos a persistir por cada usuario. (16h)
+  \item Diseñar base de datos de usuarios. (10h)
+  \item Implementación de CU1 (40h)
+  \item Testing de CU1 (30h)
+  \item Investigar tecnologías web a utilizar para el cliente web. (16h)
+  \item Investigar tecnologías a utilizar para los clientes móviles. (16h)
+  \item Desarrollar stubs de las aplicaciones web y móviles. (8h)
+  \item Integrar motor de gráficos 2D a la aplicación web. (18h)
+  \item Integrar motor de gráficos 2D a la aplicación móvil. (18h)
+  \item Implementación de una visualización de partido de prueba. (45h)
+  \item Testing de CU2 (40h)
+  \item Investigar plataforma para el servidor de transmisión. (10h)
+  \item Definir la interfaz de comunicación con el servidor. (10h)
+  \item Desarrollar stub del servidor. (8h)
+  \item Implementar transmisión de datos de una simulación de prueba. (35h)
+  \item Desarrollar cliente simple de prueba. (10h)
+  \item Testing de CU3 (30h)
+  \item Definir motor de base de datos a utilizar contemplando la escalabilidad. (8h)
+  \item Definir conjunto de datos a persistir por cada desafío. (10h)
+  \item Investigar alternativas para la persistencia segura de datos del desafío. (10h)
+  \item Diseñar base de datos de desafíos. (16h)
+  \item Implementación de CU4 (30h)
+  \item Testing de CU4 (25h)
 \end{enumerate}
 \end{itemize}
 
@@ -434,12 +434,13 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 Donec eu turpis nunc. Cras scelerisque arcu vel arcu commodo euismod. Pellentesque quis urna ac sapien pharetra vulputate ut non nulla. In vitae nisl id nibh varius condimentum. Sed luctus urna viverra leo hendrerit, nec consequat ligula elementum. Etiam lacinia metus in mi dictum, id faucibus mi gravida. Proin vitae massa sagittis, tristique diam vitae, aliquam quam. Mauris tristique turpis diam, rutrum pulvinar magna eleifend vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut sit amet quam et leo pulvinar lobortis. Phasellus a mattis ante. Proin in lorem quis velit facilisis lobortis sit amet eget arcu. Vestibulum pharetra velit nibh.
 
 \begin{landscape}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=20cm]{gantt.png}
-  \caption{Diagrama de Gantt de la 1era iteración con la asignación de tiempo}
-  \label{fig:gantt}
-\end{figure}
+\begin{center}
+  \begin{figure}[h!]
+    \includegraphics[width=25cm]{gantt.png}
+    \caption{Diagrama de Gantt de la 1era iteración con la asignación de tiempo}
+    \label{fig:gantt}
+  \end{figure}
+\end{center}
 \end{landscape}
 \newpage
 
@@ -450,28 +451,28 @@ Donec eu turpis nunc. Cras scelerisque arcu vel arcu commodo euismod. Pellentesq
 \section{Análisis de riesgos}
 \label{riesgos:r1}
 \riesgo{1}
-    {Etiam sollicitudin sagittis ultrices.}
-    {Alta}
-    {Alto}
-    {Alta}
-    {Duis ullamcorper ornare augue, sed pellentesque nulla varius in.}
-    {Maecenas a tristique lorem, at mattis dui.}
+    { Los motores gráficos 2D y 3D son desarrollados por terceros. Si alguna de las dos compañías deja de funcionar, perdemos soporte para el correspondiente motor gráfico e incrementa fuertemente el costo y tiempo de desarrollo para realizar mejoras o agregar funcionalidad en el mismo. }
+    {Baja} % Probabilidad
+    {Alto} % Impacto
+    {Media} % Exposición
+    {Establecer una capa de abtracción encima de los motores gráficos para que los mismos sean reemplazables sin que sea necesario modificar los demás sistemas.} % Mitigación
+    {Licitar el motor gráfico que ha perdido soporte entre nuevas empresas.} % Plan de contingencia
 
 \riesgo{2}
-    {Suspendisse lacinia congue tortor, eu porta ex volutpat consequat.}
-    {Media}
-    {Medio}
-    {Medio}
-    {Nulla sed tempor nisl, sit amet eleifend metus.}
-    {Ut semper ultricies luctus.}
+    {Actualmente, los usuarios tienen múltiples modos para visualizar un partido: simulación 2D o 3D a partir del feed de la simulación, streaming de partidos reales y streaming de un render de la simulación realizado del lado del servidor. Si un usuario tiene un dispositivo sin las prestaciones necesarias para realizar una simulación de forma nativa, cada vez que tenga mala conectividad tampoco será capaz de visualizar streamings y no podrá obtener información sobre los partidos de ninguna manera. }
+    {Media} % Probabilidad
+    {Medio} % Impacto
+    {Media} % Exposición
+    {Desarrollar un feed de información acerca del partido en ejecución que sea apto para clientes con bajos recursos de hardware y mala conectividad.}
+    {Proponer al usuario afectado la visualización del feed del partido basado en texto.}
 
 \riesgo{3}
-    {Quisque vitae magna pellentesque, rhoncus erat in, imperdiet odio.}
-    {Alta}
-    {Alto}
-    {Alta}
-    {Nunc interdum sagittis sollicitudin.}
-    {Praesent blandit pharetra mi non aliquam.}
+    {El sistema en su conjunto procesa varios conjuntos de datos altamente sensibles que refieren a la identidad de sus usuarios, a sus medios de pago, y la realización de las simulaciones que determinan los desafíos para bajo apuestas o con premios, así como los resultados de los mismos. Si alguno de estos sistemas es comprometido, la integridad personal o económica de los usuarios o del sistema mismo pueden sufrir consecuencias irreversibles. }
+    {Media} % Probabilidad
+    {Alto} % Impacto
+    {Media} % Exposición
+    {Investigar fuertemente las mejores prácticas en seguridad para el desarrollo de los sistemas que procesan información sensible.}
+    {Suspensión inmediata de actividades en la platafoma con posibles resultados irreversibles (pagos, entrega de premios) e investigación sobre el siniestro cooperando con las autoridades.}
 
 \newpage
 
