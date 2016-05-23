@@ -9,6 +9,6 @@
 \contentsline {subsubsection}{\numberline {3.1.4}Fase de transici\IeC {\'o}n}{6}{subsubsection.3.1.4}
 \contentsline {subsection}{\numberline {3.2}Alcance de casos de usos de la primera iteraci\IeC {\'o}n}{6}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Tareas CU Primera iteraci\IeC {\'o}n}{7}{subsection.3.3}
-\contentsline {subsection}{\numberline {3.4}Detalle Primera iteraci\IeC {\'o}n}{7}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Plan de Proyecto}{8}{subsection.3.5}
-\contentsline {section}{\numberline {4}An\IeC {\'a}lisis de riesgos}{10}{section.4}
+\contentsline {subsection}{\numberline {3.4}Detalle Primera iteraci\IeC {\'o}n}{8}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Plan de Proyecto}{9}{subsection.3.5}
+\contentsline {section}{\numberline {4}An\IeC {\'a}lisis de riesgos}{11}{section.4}
