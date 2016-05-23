@@ -436,28 +436,28 @@ Donec eu turpis nunc. Cras scelerisque arcu vel arcu commodo euismod. Pellentesq
 \section{Análisis de riesgos}
 \label{riesgos:r1}
 \riesgo{1}
-    {Etiam sollicitudin sagittis ultrices.}
-    {Alta}
-    {Alto}
-    {Alta}
-    {Duis ullamcorper ornare augue, sed pellentesque nulla varius in.}
-    {Maecenas a tristique lorem, at mattis dui.}
+    { Los motores gráficos 2D y 3D son desarrollados por terceros. Si alguna de las dos compañías deja de funcionar, perdemos soporte para el correspondiente motor gráfico e incrementa fuertemente el costo y tiempo de desarrollo para realizar mejoras o agregar funcionalidad en el mismo. }
+    {Baja} % Probabilidad
+    {Alto} % Impacto
+    {Media} % Exposición
+    {Establecer una capa de abtracción encima de los motores gráficos para que los mismos sean reemplazables sin que sea necesario modificar los demás sistemas.} % Mitigación
+    {Licitar el motor gráfico que ha perdido soporte entre nuevas empresas.} % Plan de contingencia
 
 \riesgo{2}
-    {Suspendisse lacinia congue tortor, eu porta ex volutpat consequat.}
-    {Media}
-    {Medio}
-    {Medio}
-    {Nulla sed tempor nisl, sit amet eleifend metus.}
-    {Ut semper ultricies luctus.}
+    {Actualmente, los usuarios tienen múltiples modos para visualizar un partido: simulación 2D o 3D a partir del feed de la simulación, streaming de partidos reales y streaming de un render de la simulación realizado del lado del servidor. Si un usuario tiene un dispositivo sin las prestaciones necesarias para realizar una simulación de forma nativa, cada vez que tenga mala conectividad tampoco será capaz de visualizar streamings y no podrá obtener información sobre los partidos de ninguna manera. }
+    {Media} % Probabilidad
+    {Medio} % Impacto
+    {Media} % Exposición
+    {Desarrollar un feed de información acerca del partido en ejecución que sea apto para clientes con bajos recursos de hardware y mala conectividad.}
+    {Proponer al usuario afectado la visualización del feed del partido basado en texto.}
 
 \riesgo{3}
-    {Quisque vitae magna pellentesque, rhoncus erat in, imperdiet odio.}
-    {Alta}
-    {Alto}
-    {Alta}
-    {Nunc interdum sagittis sollicitudin.}
-    {Praesent blandit pharetra mi non aliquam.}
+    {El sistema en su conjunto procesa varios conjuntos de datos altamente sensibles que refieren a la identidad de sus usuarios, a sus medios de pago, y la realización de las simulaciones que determinan los desafíos para bajo apuestas o con premios, así como los resultados de los mismos. Si alguno de estos sistemas es comprometido, la integridad personal o económica de los usuarios o del sistema mismo pueden sufrir consecuencias irreversibles. }
+    {Media} % Probabilidad
+    {Alto} % Impacto
+    {Media} % Exposición
+    {Investigar fuertemente las mejores prácticas en seguridad para el desarrollo de los sistemas que procesan información sensible.}
+    {Suspensión inmediata de actividades en la platafoma con posibles resultados irreversibles (pagos, entrega de premios) e investigación sobre el siniestro cooperando con las autoridades.}
 
 \newpage
 
