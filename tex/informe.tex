@@ -25,8 +25,8 @@
 
 %%%%%%%%%% Constantes - Inicio %%%%%%%%%%
 \newcommand{\titulo}{Trabajo Práctico 2}
-\newcommand{\materia}{Ingeniería de Software II}
-\newcommand{\integrantes}{Almansi · Gasperi Jabalera · Russo · Tagliavini Ponce}
+\newcommand{\materia}{ISW II}
+\newcommand{\integrantes}{Almansi · Gasperi · `El capo del sorting` Russo · Tagliavini}
 \newcommand{\cuatrimestre}{Primer Cuatrimestre de 2015}
 %%%%%%%%%% Constantes - Fin %%%%%%%%%%
 
@@ -190,7 +190,7 @@ Donec non dolor pellentesque, luctus quam in, imperdiet turpis. Pellentesque veh
     \item Iniciando sesión de usuario.
     \item Ingresando datos de tarjeta / cuenta corriente.
     \item Visualizando desafíos disponibles.
-    \item Creando desafío.
+    \item Dando de alta un nuevo desafío.
     \item Ingresando a un desafío como participante.
     \item Armando equipo para desafío.
     \item Visualizando partido de un desafío.
@@ -203,8 +203,9 @@ Donec non dolor pellentesque, luctus quam in, imperdiet turpis. Pellentesque veh
     \item Guardando datos de nuevo usuario.
     \item Autenticando datos de usuario.
     \item Guardando datos cifrados de tarjeta / cuenta corriente de usuario.
-    \item Dando de alta un nuevo desafío.
     \item Transmitiendo un partido de desafío.
+    % TODO cambiar esto
+    \item Creando desafío.
     \item Cobrando apuestas de desafío.
     \item Cobrando cuota de participación en desafío.
     \item Acreditando ganancias por desafío ganado.
@@ -301,20 +302,33 @@ Vestibulum fermentum posuere sapien, eget congue est mollis ut. Sed ac rutrum pu
 \subsection{Alcance de casos de usos de la primera iteración}
 \textbf{Guardando datos de nuevo usuario.}
 
-Nulla ut dignissim mi, eget congue enim. Pellentesque sapien nisi, gravida sit amet magna id, placerat efficitur lacus. Curabitur porta eros a neque semper, at hendrerit lorem iaculis. Aliquam auctor fermentum finibus. Curabitur euismod imperdiet lorem, non accumsan nisi lacinia at. Quisque in odio libero. Cras molestie viverra urna, vel gravida magna tristique ut. Fusce ultricies nisl id sagittis tristique. Nam sed diam ex.
+El Servidor de Juego recibió los datos de un usuario a suscribir, y debe almacenarlos en algún medio físico, garantizando su disponibilidad, y haciéndolo de forma segura.
+
+Los datos de un usuario podrían ser almacenados en un único servidor o en un conjunto de servidores. Dependiendo de la escala que pretenda alcanzar la primer versión del sistema, optaremos por un almacenamiento centralizado o distribuído. Si la cantidad de usuarios es del orden de los millones, una base de datos relacional y centralizada puede ser suficiente. Si no, es posible que sea necesaria una base de datos no relacional y distribuída.
+
+La replicación de datos es un factor a considerar, relacionado con la persistencia de estos datos. Observar que la necesidad de replicación depende del volúmen de los datos, sino del volúmen de pedidos al servidor. En efecto, por más que todos los usuarios sean almacenables en forma localizada en una sola máquina, debemos asegurar que estén disponibles, dada la cantidad de accesos a esa información. Para esto podemos replicar una misma base de datos, sobre muchas máquinas.
+
+Con respecto a los datos concretos almacenados, en principio serán sólo los personales, aunque en el futuro también podría utilizarse y guardarse información sobre preferencias y gustos, para la visualización personalizada de publicidad.
+
+Como la seguridad es un atributo de calidad prioritario, debemos almacenar todos estos datos en forma segura, por ejemplo mediante hashing y salt, aunque debe invertirse cierto tiempo en estudiar otras alternativas.
 
 \textbf{Visualizando partido de un desafío.}
 
-Aenean euismod erat tellus, sit amet porta enim blandit nec. Mauris malesuada felis et erat tristique luctus. Fusce ullamcorper odio eu molestie pretium. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+La Aplicación Web/Móvil debe mostrar la ejecución de una simulación (si el desafío es de modo simulación) o la transmisión de un partido real (si es de modo fantasía). En la primera iteración, sólo nos interesa visualizar una simulación 2D.
 
+Debe analizarse las tecnologías a utilizar para desarrollar los clientes, dado que para crecer en cantidad de usuarios, necesitamos soportar determinadas plataformas masivamente usadas, como por ejemplo Android.
 
 \textbf{Transmitiendo datos de una simulación en proceso.}
 
-Cras ut erat eu tortor lacinia suscipit. Vestibulum mattis luctus diam at varius. Nulla pretium nunc iaculis mollis lacinia. Mauris ex mauris, tincidunt vel laoreet iaculis, tristique non elit. Vestibulum quis porta arcu. Praesent mi sapien, ullamcorper in pretium ut, varius vel ex.
+El Servidor de Juego debe enviar a todos los clientes visualizando cierto desafío, el flujo de datos que produce la simulación asociada. Este envío de datos se da únicamente en el caso que un usuario opta por la renderización 2D, y además su conexión de red no soporta la bajada de un flujo de video, que requiere un gran ancho de banda. En estos casos, los datos enviados corresponden a una descripción del transcurso de la simulación, que es renderizada localmente por el usuario.
+
+En la primera iteración definiremos interfaces sencillas para la comunicación entre un cliente y un servidor. El cliente simplemente pedirá los datos de una simulación, y el servidor transmitirá un flujo de datos correspondiente a una simulación artificial.
 
 \textbf{Creando desafío.}
 
-Integer auctor aliquet libero a lacinia. Cras tempus, enim gravida vulputate porta, nunc neque feugiat nisi, ac aliquam erat lacus eu est. Curabitur massa nulla, rhoncus in imperdiet a, malesuada nec augue. Pellentesque vestibulum magna et hendrerit condimentum. Curabitur nec odio vitae nibh aliquam varius sed ut mauris.
+El Servidor de Juego recibió un nuevo desafío, y lo debe almacenar en algún medio físico, garantizando su disponibilidad, y haciéndolo de forma segura.
+
+En esta primera iteración nos interesa decidir cuestiones de arquitectura, disponibilidad y seguridad, similares a las dichas en el alcance del CU \textit{Guardando datos de nuevo usuario}.
 
 \subsection{Tareas CU Primera iteración}
 A continuación se detallan las tareas diagramadas para los casos de uso incluidos en la primera iteración con su respectiva estimación de horas hombre.
