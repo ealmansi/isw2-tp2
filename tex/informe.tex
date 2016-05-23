@@ -322,30 +322,14 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU1 & Guardando datos de nuevo usuario. & 140h \\
+  CU1 & Guardando datos de nuevo usuario. & 114h \\
   \hline
-  T01 & Definir motor de base de datos a utilizar. & 16h \\
-  T02 & Definir método de encriptación para contraseñas y datos sensibles. & 16h \\
-  T04 & Definir conjunto de datos a persistir por cada usuario. & 16h \\
-  T05 & Diseñar base de datos de usuarios. & 16h \\
-  T06 & Implementación de CU1 & 40h\\
-  T07 & Testing de CU1 & 40h\\
-  \hline
-\end{tabular}
-
-\vspace{1em}
-
-\begin{tabular}{lp{13cm}l}
-  \hline
-  CU2 & Visualizando partido de un desafío. & 42h \\
-  \hline
-  T01 & Investigar tecnologías web a utilizar para el cliente web. & 8h \\
-  T02 & Investigar tecnologías a utilizar para los clientes móviles. & 8h \\
-  T03 & Desarrollar stubs de las aplicaciones web y móviles. & 8h \\
-  T04 & Integrar motor de gráficos 2D a la aplicación web. & 8h \\
-  T05 & Integrar motor de gráficos 2D a la aplicación móvil. & 8h \\
-  T06 & Implementación de una visualización de partido de prueba. & 8h \\
-  T07 & Testing de CU2 & 40h\\
+  T1.1 & Definir motor de base de datos a utilizar. & 8h \\
+  T1.2 & Definir método de encriptación para contraseñas y datos sensibles. & 10h \\
+  T1.4 & Definir conjunto de datos a persistir por cada usuario. & 16h \\
+  T1.5 & Diseñar base de datos de usuarios. & 10h \\
+  T1.6 & Implementación de CU1 & 40h\\
+  T1.7 & Testing de CU1 & 30h\\
   \hline
 \end{tabular}
 
@@ -353,14 +337,15 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU3 & Transmitiendo datos de una simulación en proceso. & 160h \\
+  CU2 & Visualizando partido de un desafío. & 161h \\
   \hline
-  T01 & Investigar plataforma para el servidor de transmisión. & 40h \\
-  T02 & Definir la interfaz de comunicación con el servidor. & 40h \\
-  T03 & Desarrollar stub del servidor. & 40h \\
-  T04 & Implementar transmisión de datos de una simulación de prueba. & 40h \\
-  T05 & Desarrollar cliente simple de prueba. & 40h \\
-  T06 & Testing de CU3 & 40h\\
+  T2.1 & Investigar tecnologías web a utilizar para el cliente web. & 16h \\
+  T2.2 & Investigar tecnologías a utilizar para los clientes móviles. & 16h \\
+  T2.3 & Desarrollar stubs de las aplicaciones web y móviles. & 8h \\
+  T2.4 & Integrar motor de gráficos 2D a la aplicación web. & 18h \\
+  T2.5 & Integrar motor de gráficos 2D a la aplicación móvil. & 18h \\
+  T2.6 & Implementación de una visualización de partido de prueba. & 45h \\
+  T2.7 & Testing de CU2 & 40h\\
   \hline
 \end{tabular}
 
@@ -368,14 +353,29 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
 
 \begin{tabular}{lp{13cm}l}
   \hline
-  CU4 & Creando desafío. & 34h \\
+  CU3 & Transmitiendo datos de una simulación en proceso. & 103h \\
   \hline
-  T01 & Definir motor de base de datos a utilizar contemplando la escalabilidad. & 16h \\
-  T02 & Definir conjunto de datos a persistir por cada desafío. & 16h \\
-  T03 & Investigar alternativas para la persistencia segura de datos del desafío. & 4h \\
-  T04 & Diseñar base de datos de desafíos. & 16h \\
-  T05 & Implementación de CU4 & 40h\\
-  T06 & Testing de CU4 & 40h\\
+  T3.1 & Investigar plataforma para el servidor de transmisión. & 10h \\
+  T3.2 & Definir la interfaz de comunicación con el servidor. & 10h \\
+  T3.3 & Desarrollar stub del servidor. & 8h \\
+  T3.4 & Implementar transmisión de datos de una simulación de prueba. & 35h \\
+  T3.5 & Desarrollar cliente simple de prueba. & 10h \\
+  T3.6 & Testing de CU3 & 30h\\
+  \hline
+\end{tabular}
+
+\vspace{1em}
+
+\begin{tabular}{lp{13cm}l}
+  \hline
+  CU4 & Creando desafío. & 99h \\
+  \hline
+  T4.1 & Definir motor de base de datos a utilizar contemplando la escalabilidad. & 8h \\
+  T4.2 & Definir conjunto de datos a persistir por cada desafío. & 10h \\
+  T4.3 & Investigar alternativas para la persistencia segura de datos del desafío. & 10h \\
+  T4.4 & Diseñar base de datos de desafíos. & 16h \\
+  T4.5 & Implementación de CU4 & 30h\\
+  T4.6 & Testing de CU4 & 25h\\
   \hline
 \end{tabular}
 
