@@ -5,11 +5,11 @@
 \contentsline {subsection}{\numberline {3.1}Iteraciones}{5}{subsection.3.1}
 \contentsline {subsubsection}{\numberline {3.1.1}Fase de iniciaci\IeC {\'o}n}{5}{subsubsection.3.1.1}
 \contentsline {subsubsection}{\numberline {3.1.2}Fase de elaboraci\IeC {\'o}n}{5}{subsubsection.3.1.2}
-\contentsline {subsubsection}{\numberline {3.1.3}Fase de construcci\IeC {\'o}n}{6}{subsubsection.3.1.3}
+\contentsline {subsubsection}{\numberline {3.1.3}Fase de construcci\IeC {\'o}n}{5}{subsubsection.3.1.3}
 \contentsline {subsubsection}{\numberline {3.1.4}Fase de transici\IeC {\'o}n}{6}{subsubsection.3.1.4}
 \contentsline {subsection}{\numberline {3.2}Alcance de casos de usos de la primera iteraci\IeC {\'o}n}{6}{subsection.3.2}
 \contentsline {subsection}{\numberline {3.3}Tareas CU Primera iteraci\IeC {\'o}n}{7}{subsection.3.3}
 \contentsline {subsection}{\numberline {3.4}Dependencias entre tareas}{8}{subsection.3.4}
-\contentsline {subsection}{\numberline {3.5}Detalle Primera iteraci\IeC {\'o}n}{9}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.5}Detalle Primera iteraci\IeC {\'o}n}{8}{subsection.3.5}
 \contentsline {subsection}{\numberline {3.6}Plan de Proyecto}{10}{subsection.3.6}
 \contentsline {section}{\numberline {4}An\IeC {\'a}lisis de riesgos}{12}{section.4}

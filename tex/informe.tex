@@ -192,11 +192,11 @@ A continuación incluimos los principales casos de uso cubriendo la mayor parte 
     \item Ingresando datos de tarjeta / cuenta corriente.
     \item Visualizando desafíos disponibles.
     \item Dando de alta un nuevo desafío.
-    \item Ingresando a un desafío como participante.
+    \item Ingresando a un desafío.
     \item Armando equipo para desafío.
     \item Visualizando partido de un desafío.
-    \item Visualizando saldo de usuario.
-    \item Visualizando premios ganados del usuario.
+    \item Visualizando saldo.
+    \item Visualizando premios ganados.
   \end{itemize}
 
   \item \textbf{Servidor de Juego.}
@@ -247,11 +247,11 @@ En segundo lugar, tuvimos en cuenta el análisis de riesgos realizado, priorizan
 En la primera iteración comenzamos a probar el motor gráfico 2D tratando, apuntando a comenzar a evaluar el funcionamiento de dicho motor, y analizamos y desarrollamos estrategias para garantizar la seguridad de los datos de usuarios y desafíos.
 
 \subsubsection{Fase de iniciación}
-Esta fase se compone del desarrollo realizado en el TP1.
+Esta fase queda representada por el enunciado del TP2.
 
 \subsubsection{Fase de elaboración}
 
-\textbf{Primera iteración} [4 semanas]
+\textbf{Primera iteración}
 \begin{enumerate}
 \item Guardando datos de nuevo usuario.
 \item Visualizando partido de un desafío.
@@ -259,7 +259,7 @@ Esta fase se compone del desarrollo realizado en el TP1.
 \item Creando desafío.
 \end{enumerate}
 
-\textbf{Segunda iteración} [3 semanas]
+\textbf{Segunda iteración}
 \begin{enumerate}
 \item Iniciando sesión de usuario.
 \item Autenticando datos de usuario.
@@ -267,7 +267,9 @@ Esta fase se compone del desarrollo realizado en el TP1.
 \item Guardando datos cifrados de tarjeta / cuenta corriente de usuario.
 \end{enumerate}
 
-\textbf{Tercera iteración} [2 semanas]
+\subsubsection{Fase de construcción}
+
+\textbf{Tercera iteración}
 \begin{enumerate}
 \item Dando de alta un nuevo desafío.
 \item Ingresando a un desafío como participante.
@@ -276,7 +278,7 @@ Esta fase se compone del desarrollo realizado en el TP1.
 \item Armando equipo para desafío.
 \end{enumerate}
 
-\textbf{Cuarta iteración} [4 semanas]
+\textbf{Cuarta iteración}
 \begin{enumerate}
 \item Visualizando saldo de usuario.
 \item Cobrando cuota de participación en desafío.
@@ -284,15 +286,19 @@ Esta fase se compone del desarrollo realizado en el TP1.
 \item Visualizando desafíos disponibles.
 \end{enumerate}
 
-\textbf{Quinta iteración} [3 semanas]
+% Consiste del desarrollo de cada uno de los casos de uso definidos en la fase de elaboración. Al terminar cada una de las iteraciones, deberíamos tener un software testeable. Al terminar todas las iteraciones, deberíamos tener el software que cumple con todas las especificaciones indicadas por el enunciado y los stakeholders.
+
+\subsubsection{Fase de transición}
+
+\textbf{Quinta iteración}
 \begin{enumerate}
 \item Cobrando apuestas de desafío.
-\item Visualizando premios ganados del usuario.
+\item Visualizando premios ganados.
 \item Transmitiendo render de una simulación en proceso.
 \item Validando datos de tarjeta / cuenta corriente.
 \end{enumerate}
 
-\textbf{Sexta iteración} [4 semanas]
+\textbf{Sexta iteración}
 \begin{enumerate}
 \item Transmitiendo un partido en vivo.
 \item Debitando monto a una tarjeta / cuenta corriente.
@@ -300,13 +306,7 @@ Esta fase se compone del desarrollo realizado en el TP1.
 \item Acreditando ganancias por desafío ganado.
 \end{enumerate}
 
-\subsubsection{Fase de construcción}
-
-Consiste del desarrollo de cada uno de los casos de uso definidos en la fase de elaboración. Al terminar cada una de las iteraciones, deberíamos tener un software testeable. Al terminar todas las iteraciones, deberíamos tener el software que cumple con todas las especificaciones indicadas por el enunciado y los stakeholders.
-
-\subsubsection{Fase de transición}
-
-Ya con un sistema que tiene todas las características especificadas implementadas, comienza a utilizarse también por usuarios reales. Esto permite detectar problemas y errores, que deben arreglarse en esta fase. Además, se provee la asistencia necesaria para aprender a menajar todos los aspectos del sistema y su mantenimiento.
+% Ya con un sistema que tiene todas las características especificadas implementadas, comienza a utilizarse también por usuarios reales. Esto permite detectar problemas y errores, que deben arreglarse en esta fase. Además, se provee la asistencia necesaria para aprender a menajar todos los aspectos del sistema y su mantenimiento.
 
 \subsection{Alcance de casos de usos de la primera iteración}
 \textbf{Guardando datos de nuevo usuario.}
@@ -319,7 +319,7 @@ La replicación de datos es un factor a considerar, relacionado con la persisten
 
 Con respecto a los datos concretos almacenados, en principio serán sólo los personales, aunque en el futuro también podría utilizarse y guardarse información sobre preferencias y gustos, para la visualización personalizada de publicidad.
 
-Como la seguridad es un atributo de calidad prioritario, debemos almacenar todos estos datos en forma segura, por ejemplo mediante hashing y salt, aunque debe invertirse cierto tiempo en estudiar otras alternativas.
+Como la seguridad es un atributo de calidad prioritario, debemos almacenar todos estos datos en forma segura, aunque debe invertirse cierto tiempo en estudiar otras alternativas.
 
 \textbf{Visualizando partido de un desafío.}
 
@@ -347,7 +347,7 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
   \hline
   CU1 & Guardando datos de nuevo usuario. & 114h \\
   \hline
-  T1.1 & Definir motor de base de datos a utilizar, contemplando la escalabilidad. & 8h \\
+  T1.1 & Definir motor de base de datos a utilizar para datos de usuario, contemplando la escalabilidad. & 8h \\
   T1.2 & Definir método de encriptación para contraseñas y datos sensibles. & 10h \\
   T1.4 & Definir conjunto de datos a persistir por cada usuario. & 16h \\
   T1.5 & Diseñar base de datos de usuarios. & 10h \\
@@ -367,7 +367,7 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
   T2.3 & Desarrollar stubs de las aplicaciones web y móviles. & 8h \\
   T2.4 & Integrar motor de gráficos 2D a la aplicación web. & 18h \\
   T2.5 & Integrar motor de gráficos 2D a la aplicación móvil. & 18h \\
-  T2.6 & Implementación de una visualización de partido de prueba. & 45h \\
+  T2.6 & Implementación de CU2. & 45h \\
   T2.7 & Testing de CU2 & 40h\\
   \hline
 \end{tabular}
@@ -381,8 +381,8 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
   T3.1 & Investigar plataforma para el servidor de transmisión. & 10h \\
   T3.2 & Definir la interfaz de comunicación con el servidor. & 10h \\
   T3.3 & Desarrollar stub del servidor. & 8h \\
-  T3.4 & Implementar transmisión de datos de una simulación de prueba. & 35h \\
-  T3.5 & Desarrollar cliente simple de prueba. & 10h \\
+  T3.4 & Desarrollar cliente simple de prueba. & 10h \\
+  T3.5 & Implementación de CU3. & 35h \\
   T3.6 & Testing de CU3 & 30h\\
   \hline
 \end{tabular}
@@ -393,7 +393,7 @@ A continuación se detallan las tareas diagramadas para los casos de uso incluid
   \hline
   CU4 & Creando desafío. & 99h \\
   \hline
-  T4.1 & Definir motor de base de datos a utilizar, contemplando la escalabilidad. & 8h \\
+  T4.1 & Definir motor de base de datos a utilizar para datos de desafío, contemplando la escalabilidad. & 8h \\
   T4.2 & Definir conjunto de datos a persistir por cada desafío. & 10h \\
   T4.3 & Investigar alternativas para la persistencia segura de datos del desafío. & 10h \\
   T4.4 & Diseñar base de datos de desafíos. & 16h \\
@@ -444,13 +444,18 @@ Las tareas involucradas en cada caso de uso no son necesariamente independientes
 \begin{itemize}
   \item \textbf{Identificación:} E1
   \item \textbf{Tipo de iteración:} Elaboración
-  \item \textbf{Cantidad total de horas:} 480
+  \item \textbf{Cantidad total de horas:} 528
   \item \textbf{Tareas:}
 \begin{enumerate}
-  \item Definir motor de base de datos a utilizar. (8h)
+  \item Definir organización de la base de código y sistema de versionado. (4h)
+  \item Definir motor de base de datos a utilizar para datos de usuario. (8h)
+  \item Desarrollar un servidor de integración continua y testing. (20h)
   \item Definir método de encriptación para contraseñas y datos sensibles. (10h)
   \item Definir conjunto de datos a persistir por cada usuario. (16h)
+  \item Elegir lenguajes y plataformas para el desarrollo de cada subsistema. (10h)
+  \item Establecer criterios de calidad y formato de código. (2h)
   \item Diseñar base de datos de usuarios. (10h)
+  \item Desarrollar un servidor de deploy. (15h)
   \item Implementación de CU1 (40h)
   \item Testing de CU1 (30h)
   \item Investigar tecnologías web a utilizar para el cliente web. (16h)
@@ -466,7 +471,7 @@ Las tareas involucradas en cada caso de uso no son necesariamente independientes
   \item Implementar transmisión de datos de una simulación de prueba. (35h)
   \item Desarrollar cliente simple de prueba. (10h)
   \item Testing de CU3 (30h)
-  \item Definir motor de base de datos a utilizar contemplando la escalabilidad. (8h)
+  \item Definir motor de base de datos a utilizar para datos de desafíos. (8h)
   \item Definir conjunto de datos a persistir por cada desafío. (10h)
   \item Investigar alternativas para la persistencia segura de datos del desafío. (10h)
   \item Diseñar base de datos de desafíos. (16h)
