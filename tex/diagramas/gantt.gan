@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-05-21" view-index="0" gantt-divider-location="350" resource-divider-location="300" version="2.7.2" locale="en_US">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2016-05-20" view-index="0" gantt-divider-location="350" resource-divider-location="300" version="2.7.2" locale="en_US">
     <description/>
     <view zooming-state="default:3" id="gantt-chart">
         <field id="tpd3" name="Name" width="65" order="0"/>
@@ -33,38 +33,81 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="25" name="CU1: Guardando datos de nuevo usuario." meeting="false" start="2016-05-23" duration="7" complete="0" expand="true">
-            <task id="26" name="T1.1: Definir motor de base de datos a utilizar, contemplando la escalabilidad." meeting="false" start="2016-05-23" duration="1" complete="0" expand="true"/>
-            <task id="27" name="T1.2: Definir método de encriptación para contraseñas y datos sensibles." meeting="false" start="2016-05-23" duration="2" complete="0" expand="true"/>
-            <task id="28" name="T1.4: Definir conjunto de datos a persistir por cada usuario." meeting="false" start="2016-05-24" duration="2" complete="0" expand="true"/>
-            <task id="29" name="T1.5: Diseñar base de datos de usuarios." meeting="false" start="2016-05-25" duration="1" complete="0" expand="true"/>
-            <task id="30" name="T1.6: Implementación de CU1." meeting="false" start="2016-05-26" duration="2" complete="0" expand="true"/>
-            <task id="31" name="T1.7: Testing de CU1." color="#8cb6ce" meeting="false" start="2016-05-27" duration="3" complete="0" expand="true"/>
+        <task id="25" name="CU1: Guardando datos de nuevo usuario." meeting="false" start="2016-05-23" duration="10" complete="0" expand="true">
+            <task id="26" name="T1.1: Definir motor de base de datos a utilizar, contemplando la escalabilidad." meeting="false" start="2016-05-23" duration="1" complete="0" expand="true">
+                <depend id="28" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="27" name="T1.2: Definir método de encriptación para contraseñas y datos sensibles." meeting="false" start="2016-05-23" duration="2" complete="0" expand="true">
+                <depend id="28" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="28" name="T1.4: Definir conjunto de datos a persistir por cada usuario." meeting="false" start="2016-05-25" duration="2" complete="0" expand="true">
+                <depend id="29" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="29" name="T1.5: Diseñar base de datos de usuarios." meeting="false" start="2016-05-27" duration="1" complete="0" expand="true">
+                <depend id="30" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="30" name="T1.6: Implementación de CU1." meeting="false" start="2016-05-30" duration="2" complete="0" expand="true">
+                <depend id="31" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="31" name="T1.7: Testing de CU1." color="#8cb6ce" meeting="false" start="2016-06-01" duration="3" complete="0" expand="true"/>
         </task>
-        <task id="32" name="CU2: Visualizando partido de un desafío." color="#000000" meeting="false" start="2016-06-01" duration="10" complete="0" expand="true">
-            <task id="33" name="T2.1: Investigar tecnologías web a utilizar para el cliente web." meeting="false" start="2016-06-01" duration="1" complete="0" expand="true"/>
-            <task id="34" name="T2.2: Investigar tecnologías a utilizar para los clientes móviles." color="#8cb6ce" meeting="false" start="2016-06-02" duration="1" complete="0" expand="true"/>
-            <task id="35" name="T2.3: Desarrollar stubs de las aplicaciones web y móviles." color="#8cb6ce" meeting="false" start="2016-06-03" duration="1" complete="0" expand="true"/>
-            <task id="36" name="T2.4: Integrar motor de gráficos 2D a la aplicación web." meeting="false" start="2016-06-03" duration="2" complete="0" expand="true"/>
-            <task id="37" name="T2.5: Integrar motor de gráficos 2D a la aplicación móvil." color="#8cb6ce" meeting="false" start="2016-06-07" duration="2" complete="0" expand="true"/>
-            <task id="38" name="T2.6: Implementación de una visualización de partido de prueba." meeting="false" start="2016-06-08" duration="3" complete="0" expand="true"/>
-            <task id="39" name="T2.7:  Testing de CU2." meeting="false" start="2016-06-13" duration="2" complete="0" expand="true"/>
+        <task id="32" name="CU2: Visualizando partido de un desafío." color="#000000" meeting="false" start="2016-05-25" duration="9" complete="0" expand="true">
+            <task id="33" name="T2.1: Investigar tecnologías web a utilizar para el cliente web." color="#8cb6ce" meeting="false" start="2016-05-25" duration="1" complete="0" expand="true">
+                <depend id="35" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="34" name="T2.2: Investigar tecnologías a utilizar para los clientes móviles." color="#8cb6ce" meeting="false" start="2016-05-26" duration="1" complete="0" expand="true">
+                <depend id="35" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="35" name="T2.3: Desarrollar stubs de las aplicaciones web y móviles." color="#8cb6ce" meeting="false" start="2016-05-27" duration="1" complete="0" expand="true">
+                <depend id="38" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="36" name="T2.4: Integrar motor de gráficos 2D a la aplicación web." color="#8cb6ce" meeting="false" start="2016-05-27" duration="2" complete="0" expand="true">
+                <depend id="38" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="37" name="T2.5: Integrar motor de gráficos 2D a la aplicación móvil." color="#8cb6ce" meeting="false" start="2016-05-27" duration="2" complete="0" expand="true">
+                <depend id="38" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="38" name="T2.6: Implementación de una visualización de partido de prueba." meeting="false" start="2016-05-31" duration="3" complete="0" expand="true">
+                <depend id="39" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="39" name="T2.7:  Testing de CU2." meeting="false" start="2016-06-03" duration="2" complete="0" expand="true"/>
         </task>
-        <task id="40" name="CU3: Transmitiendo datos de una simulación en proceso." meeting="false" start="2016-06-14" duration="6" complete="0" expand="true">
-            <task id="41" name="T3.1: Investigar plataforma para el servidor de transmisión." color="#8cb6ce" meeting="false" start="2016-06-14" duration="1" complete="0" expand="true"/>
-            <task id="42" name="T3.2: Definir la interfaz de comunicación con el servidor." color="#8cb6ce" meeting="false" start="2016-06-15" duration="1" complete="0" expand="true"/>
-            <task id="43" name="T3.3: Desarrollar stub del servidor." color="#8cb6ce" meeting="false" start="2016-06-15" duration="1" complete="0" expand="true"/>
-            <task id="44" name="T3.4: Implementar transmisión de datos de una simulación de prueba." color="#8cb6ce" meeting="false" start="2016-06-16" duration="2" complete="0" expand="true"/>
-            <task id="45" name="T3.5: Desarrollar cliente simple de prueba." meeting="false" start="2016-06-20" duration="1" complete="0" expand="true"/>
-            <task id="46" name="T3.6: Testing de CU3." color="#8cb6ce" meeting="false" start="2016-06-20" duration="2" complete="0" expand="true"/>
+        <task id="40" name="CU3: Transmitiendo datos de una simulación en proceso." meeting="false" start="2016-06-01" duration="8" complete="0" expand="true">
+            <task id="41" name="T3.1: Investigar plataforma para el servidor de transmisión." color="#8cb6ce" meeting="false" start="2016-06-01" duration="1" complete="0" expand="true">
+                <depend id="43" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="42" name="T3.2: Definir la interfaz de comunicación con el servidor." color="#8cb6ce" meeting="false" start="2016-06-02" duration="1" complete="0" expand="true">
+                <depend id="43" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="43" name="T3.3: Desarrollar stub del servidor." color="#8cb6ce" meeting="false" start="2016-06-03" duration="1" complete="0" expand="true">
+                <depend id="44" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="44" name="T3.4: Implementar transmisión de datos de una simulación de prueba." color="#8cb6ce" meeting="false" start="2016-06-06" duration="2" complete="0" expand="true">
+                <depend id="46" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="45" name="T3.5: Desarrollar cliente simple de prueba." meeting="false" start="2016-06-10" duration="1" complete="0" expand="true"/>
+            <task id="46" name="T3.6: Testing de CU3." color="#8cb6ce" meeting="false" start="2016-06-08" duration="2" complete="0" expand="true">
+                <depend id="45" type="2" difference="0" hardness="Strong"/>
+            </task>
         </task>
-        <task id="47" name="CU4: Creando desafío." meeting="false" start="2016-06-22" duration="7" complete="0" expand="true">
-            <task id="48" name="T4.1: Definir motor de base de datos a utilizar, contemplando la escalabilidad." meeting="false" start="2016-06-22" duration="1" complete="0" expand="true"/>
-            <task id="49" name="T4.2: Definir conjunto de datos a persistir por cada desafío." color="#8cb6ce" meeting="false" start="2016-06-22" duration="2" complete="0" expand="true"/>
-            <task id="50" name="T4.3: Investigar alternativas para la persistencia segura de datos del desafío." color="#8cb6ce" meeting="false" start="2016-06-23" duration="1" complete="0" expand="true"/>
-            <task id="51" name="T4.4: Diseñar base de datos de desafíos." meeting="false" start="2016-06-24" duration="1" complete="0" expand="true"/>
-            <task id="52" name="T4.5: Implementación de CU4." color="#8cb6ce" meeting="false" start="2016-06-27" duration="2" complete="0" expand="true"/>
-            <task id="53" name="T4.6: Testing de CU4." color="#8cb6ce" meeting="false" start="2016-06-28" duration="3" complete="0" expand="true"/>
+        <task id="47" name="CU4: Creando desafío." meeting="false" start="2016-05-31" duration="9" complete="0" expand="true">
+            <task id="48" name="T4.1: Definir motor de base de datos a utilizar, contemplando la escalabilidad." color="#8cb6ce" meeting="false" start="2016-05-31" duration="1" complete="0" expand="true">
+                <depend id="49" type="2" difference="0" hardness="Strong"/>
+                <depend id="50" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="49" name="T4.2: Definir conjunto de datos a persistir por cada desafío." color="#8cb6ce" meeting="false" start="2016-06-01" duration="2" complete="0" expand="true">
+                <depend id="51" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="50" name="T4.3: Investigar alternativas para la persistencia segura de datos del desafío." color="#8cb6ce" meeting="false" start="2016-06-01" duration="1" complete="0" expand="true">
+                <depend id="52" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="51" name="T4.4: Diseñar base de datos de desafíos." meeting="false" start="2016-06-03" duration="1" complete="0" expand="true">
+                <depend id="52" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="52" name="T4.5: Implementación de CU4." color="#8cb6ce" meeting="false" start="2016-06-06" duration="2" complete="0" expand="true">
+                <depend id="53" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="53" name="T4.6: Testing de CU4." color="#8cb6ce" meeting="false" start="2016-06-08" duration="3" complete="0" expand="true"/>
         </task>
     </tasks>
     <resources/>
