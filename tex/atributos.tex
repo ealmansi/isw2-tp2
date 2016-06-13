@@ -4,13 +4,13 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Los partidos se den en excelente calidad sin cortes, daod que la empresa proveedora se puede llegar a caer sin previo aviso.\\  \hline
-  \textbf{Fuente} & UNA FUENTE\\  \hline
-  \textbf{Estímulo} & UN ESTIMULO.\\  \hline
-  \textbf{Entorno} & UN ENTORNO\\  \hline
-  \textbf{Artefacto} & UN ARTEFACTO\\  \hline
-  \textbf{Respuesta} & UNA RESPUESTA\\  \hline
-  \textbf{Medición} & UNA MEDICION\\  \hline
+  \textbf{Descripción} & Los partidos se den en excelente calidad sin cortes, dado que la empresa proveedora se puede llegar a caer sin previo aviso.\\  \hline
+  \textbf{Fuente} & Usuario\\  \hline
+  \textbf{Estímulo} & Se desea ver el streaming de video.\\  \hline
+  \textbf{Entorno} & Normal\\  \hline
+  \textbf{Artefacto} & Sistema\\  \hline
+  \textbf{Respuesta} & Se calcula que tipo de conexion tiene el usuario y se comienza el streming de video.\\  \hline
+  \textbf{Medición} & Se producen a lo sumo 2 cortes de cada 1000 streamings.\\  \hline
   \end{tabular}
 \end{center} 
 
@@ -58,13 +58,13 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Arquitectura distribuida en pequeños nodos.\\  \hline
-  \textbf{Fuente} & UNA FUENTE\\  \hline
-  \textbf{Estímulo} & UN ESTIMULO.\\  \hline
-  \textbf{Entorno} & UN ENTORNO\\  \hline
-  \textbf{Artefacto} & UN ARTEFACTO\\  \hline
-  \textbf{Respuesta} & UNA RESPUESTA\\  \hline
-  \textbf{Medición} & UNA MEDICION\\  \hline
+  \textbf{Descripción} & En caso de que un nodo este saturado se direcciona a otro.\\  \hline
+  \textbf{Fuente} & Usuario\\  \hline
+  \textbf{Estímulo} & Se hace un pedido.\\  \hline
+  \textbf{Entorno} & Sistema con nodo saturado\\  \hline
+  \textbf{Artefacto} & Sistema\\  \hline
+  \textbf{Respuesta} & Se selecciona otro nodo y se continua el servicio con el.\\  \hline
+  \textbf{Medición} & En el 0.01\% el sistema se satura y no se direcciona a otro nodo.\\  \hline
   \end{tabular}
 \end{center} 
 
@@ -86,12 +86,12 @@
   \begin{tabular}{| l | p{10cm} | }
     \hline
   \textbf{Descripción} & Requiere que sea fácil desactivar una cuenta por un tiempo (sin poder reactivarla), para ayudar a que un adicto en recuperación no pueda tener una recaída. Que aplique para eso usuario lo mismo que para los países en los que no está disponible el sitio.\\  \hline
-  \textbf{Fuente} & UNA FUENTE\\  \hline
-  \textbf{Estímulo} & UN ESTIMULO.\\  \hline
-  \textbf{Entorno} & UN ENTORNO\\  \hline
-  \textbf{Artefacto} & UN ARTEFACTO\\  \hline
-  \textbf{Respuesta} & UNA RESPUESTA\\  \hline
-  \textbf{Medición} & UNA MEDICION\\  \hline
+  \textbf{Fuente} & Usuario adicto\\  \hline
+  \textbf{Estímulo} & Un usuario adicto intenta conectarce.\\  \hline
+  \textbf{Entorno} & Normal\\  \hline
+  \textbf{Artefacto} & Sistema\\  \hline
+  \textbf{Respuesta} & Se bloquea el acceso al sistema.\\  \hline
+  \textbf{Medición} & En el 99\% de los casos que un usuario adicto intenta conectarse se le prohibe (bloquea) el acceso al sistema.\\  \hline
   \end{tabular}
 \end{center} 
 
@@ -101,12 +101,12 @@
   \begin{tabular}{| l | p{10cm} | }
     \hline
   \textbf{Descripción} & Su empresa colabora con todo lo que sea posible para ayudar a construir el módulo encargado de hacer el streaming del engine 3d cuando no puede usarse ninguno de los dos.\\  \hline
-  \textbf{Fuente} & UNA FUENTE\\  \hline
-  \textbf{Estímulo} & UN ESTIMULO.\\  \hline
-  \textbf{Entorno} & UN ENTORNO\\  \hline
-  \textbf{Artefacto} & UN ARTEFACTO\\  \hline
-  \textbf{Respuesta} & UNA RESPUESTA\\  \hline
-  \textbf{Medición} & UNA MEDICION\\  \hline
+  \textbf{Fuente} & Usuario\\  \hline
+  \textbf{Estímulo} & Visualizacion de una simulacion.\\  \hline
+  \textbf{Entorno} & Ninguno de los motores graficos esta disponible\\  \hline
+  \textbf{Artefacto} & Sistema\\  \hline
+  \textbf{Respuesta} & Se activa la visualizacion de streaming 3D de la simulacion.\\  \hline
+  \textbf{Medición} & En el 99\% de los casos se hace el streaming sin inconvenientes.\\  \hline
   \end{tabular}
 \end{center} 
 
@@ -348,19 +348,6 @@
   \textbf{Medición} & UNA MEDICION\\  \hline
   \end{tabular}
 \end{center} 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 \subsection{Seguridad}
