@@ -1,0 +1,19 @@
+1 - Vamos a tener el motor 3d y 2d en los clientes, pero vamos a hacer el streaming con el motor que se pueda hacer, es decir, si un cliente soporta el motor 3D, utiliza este, sino utiliza el 2D.
+2 - Vamos a tener un repo de informacion simulaciones activas donde guardamos los datos de las apuestas en cada simulacion y mas data.
+3 - Cuando una simulacion termina el simulador del partido le avisa el procesador de resultados, el cual busca la info de las simulaciones activas en el repo. Entonces tenemos un repo de estadisticas de usuario (esto no sirve para el ranking, entre otra cosas). 
+4 - El simulador es el que le avisa a los jugadores que termino y como la simulacion.
+5 - Tenemos un comunicador Tarjeta, que es el que se comunica con las tarjetas de credito. El procesador de resutlado le avisa al comunicador de tarjeta a quien transferirle y este se encarga de avisarle a la tarjeta.
+6 - TEnemos un repo de info de jugadores donde estan los datos de tarjeta entre otros.
+7 - Repo de desafios modo simulacion, el jugador se comunica con el comunicador el cual le dice al Creador de desafios el cual crea el desafio y lo guarda en el repo.
+8 - Driver interfaz de usuario que es el que le manda al procesador de ordenes "che hacete un desafio"
+9 - Listador de desafios. El jugador le pide "mostrame los desafios" al comunicador el cual le manda al listador de desafios y este devuelve la lista que se muestra por la pantalla.
+10 - Aceptador de desafios, le llega un desafio y lo acepta.
+11 - El creador de desafios tmb crea tornos, porque un torneo lo pensamos como un desafio.
+12 - cada vez que un jugador hace un mensaje en el chat, pasa por el analizador d emsj que junto con los msj proveniente de la red social (que se hace polling) los procesa y le manda un resutlado al simulador.
+13 - Armador de chat, recibe los msjs y arma un listado de msj para mostrarlos en la UI del cliente. 
+14 - Emisor de chat, envia el texto escrito.
+15 - El dispacher de simulacion es como un orquestador, este le va a avisar al simulador "ejecuta partido", y va a recibir "ya se ejecuto" y este tiene tablas de partidos pendientes y terminados. 
+16 - Todo desafio, tiene una fecha de cominezo, que puede ser dos opciones, cuando esten los participantes o podes fijar la fecha, si es fija y no estan todos los participantes, se deshace. Esto se hace en CREAR DESAFIO (TODO). El dispacher simulaciones tiene un conector blackboard que se comunica con el repo de partidos pendientes modo simulacion para que este le avise cuando hacer un partido.
+
+17 - {Contexto: streaming de video, data: el video trae metadata que indica la performance de cada jugador}
+18 - El creador de desafío en función del tipo desafío determina las fechas de los partidos.
