@@ -1,19 +1,62 @@
-1 - Vamos a tener el motor 3d y 2d en los clientes, pero vamos a hacer el streaming con el motor que se pueda hacer, es decir, si un cliente soporta el motor 3D, utiliza este, sino utiliza el 2D.
-2 - Vamos a tener un repo de informacion simulaciones activas donde guardamos los datos de las apuestas en cada simulacion y mas data.
-3 - Cuando una simulacion termina el simulador del partido le avisa el procesador de resultados, el cual busca la info de las simulaciones activas en el repo. Entonces tenemos un repo de estadisticas de usuario (esto no sirve para el ranking, entre otra cosas). 
-4 - El simulador es el que le avisa a los jugadores que termino y como la simulacion.
-5 - Tenemos un comunicador Tarjeta, que es el que se comunica con las tarjetas de credito. El procesador de resutlado le avisa al comunicador de tarjeta a quien transferirle y este se encarga de avisarle a la tarjeta.
-6 - TEnemos un repo de info de jugadores donde estan los datos de tarjeta entre otros.
-7 - Repo de desafios modo simulacion, el jugador se comunica con el comunicador el cual le dice al Creador de desafios el cual crea el desafio y lo guarda en el repo.
-8 - Driver interfaz de usuario que es el que le manda al procesador de ordenes "che hacete un desafio"
-9 - Listador de desafios. El jugador le pide "mostrame los desafios" al comunicador el cual le manda al listador de desafios y este devuelve la lista que se muestra por la pantalla.
-10 - Aceptador de desafios, le llega un desafio y lo acepta.
-11 - El creador de desafios tmb crea tornos, porque un torneo lo pensamos como un desafio.
-12 - cada vez que un jugador hace un mensaje en el chat, pasa por el analizador d emsj que junto con los msj proveniente de la red social (que se hace polling) los procesa y le manda un resutlado al simulador.
-13 - Armador de chat, recibe los msjs y arma un listado de msj para mostrarlos en la UI del cliente. 
-14 - Emisor de chat, envia el texto escrito.
-15 - El dispacher de simulacion es como un orquestador, este le va a avisar al simulador "ejecuta partido", y va a recibir "ya se ejecuto" y este tiene tablas de partidos pendientes y terminados. 
-16 - Todo desafio, tiene una fecha de cominezo, que puede ser dos opciones, cuando esten los participantes o podes fijar la fecha, si es fija y no estan todos los participantes, se deshace. Esto se hace en CREAR DESAFIO (TODO). El dispacher simulaciones tiene un conector blackboard que se comunica con el repo de partidos pendientes modo simulacion para que este le avise cuando hacer un partido.
+
+1 - Decidimos que los clientes que no se bancan el procesamiento 3D, usen el motor 2D. Es decir, optamos por no transmitir el video de un procesamiento 3D hecho del lado del servidor, sino directamente procesar 2D en el cliente.
+
+2 - Las apuestas se guardan en un repo de apuestas. Notar que ademas de apostar por un partido, un jugador puede tener que pagar por ingresar a un desafio. Las apuestas de un partido son independientes de los premios (monetarios y no monetarios) de un desafio. Los premios se guardan en un repo de premios.
+
+3 - Cuando una simulacion termina, el simulador de partido le avisa al procesador de resultados. Este actualiza las estadisticas de los jugadores involucrados, busca los datos de los jugadores para ejecutar el pago de apuestas, y ordena al manejador de fixtures realizar las actualizaciones en el fixture.
+
+Las apuestas se debitan cuando termina el partido, y no al comienzo.
+
+6 - El repo de datos de jugador contiene los datos de pago de cada jugador, entre otras cosas.
+
+7 - Cuando se crea un desafio, el Manejador de desafios/persistidor de desafios crea el fixture, agrega los premios y crea los proximos partidos a jugarse.
+
+8 - La lista de desafios contiene todos los desafios, inclusive los de otras regiones.
+
+- Un desafio va desde un partido individual hasta un torneo, liga, etc.
+
+- Revisar mecanismo de chat. Los mensajes de chat deberian ser recibidos por todos los usuarios adentro de una sala de desafio.
+
+- Cada vez que un jugador envia un mensaje en el chat, pasa por el analizador de mensaje que junto con los mensajes proveniente de la red social (sobre la que se hace polling) los procesa y le manda un resultado al simulador.
+
+- Armador de chat, recibe los msjs y arma un listado de msj para mostrarlos en la UI del cliente.
+
+- El dispacher de simulacion es como un orquestador, este le va a avisar al simulador "ejecuta partido".
+
+- Todo desafio, tiene una fecha de cominezo, que puede ser dos opciones, cuando esten los participantes o podes fijar la fecha, si es fija y no estan todos los participantes, se deshace. Esto se hace en CREAR DESAFIO (TODO). El dispacher simulaciones tiene un conector blackboard que se comunica con el repo de partidos pendientes modo simulacion para que este le avise cuando hacer un partido.
 
 17 - {Contexto: streaming de video, data: el video trae metadata que indica la performance de cada jugador}
 18 - El creador de desafío en función del tipo desafío determina las fechas de los partidos.
+19 - Para solucionar el problema de tener distintos tipos de deportes, el simulador de partido le manda al motor grafico el "deporte" para que este sepa que dibujar. Por otro lado tenems muchos "creados de desafios", para que se puedan crear desafios de distintos tipos.
+
+
+
+****************************************************************************************************************************** HOY
+20 - Para saciar que cada jugada tiene un puntaje asociado en el modo fantasia, tenemos un repo de "puntaje por acciones (parametros)", donde estan configurado estos parametros.
+
+21 - al crear un desafio se estan creando muchos partidos, q se lo pasa al manejador de fixture que crea todos los partidos en el repo.
+
+22 - Al crear el modo desafio tenemos un repo con la info de los partidos/ligas/campeonatos reales, para de esta forma poder crearlos.
+Tenemos un modulo (Actualizador informacion eventos ) que es el que se encargar de mantener este repo actualizado.
+
+23 - Los torneos son desafios (d1, d2, etc). 
+
+24 - Tenemos distitnos creadores de desafios, cada uno recibe los pre requisitos necesarios, es decir, si voy a crear un torneo recibo la duracion, si creo un desafio simple no recibo esta duracion.
+
+25 - Para el chat, al administrador de mensajes le llega un mensaje "Guido, quiere decir 'christian capo' en el desafio 18", entonces el administrador de emnsajes se fija en el fixture quierenes son los usuarios pertenecientes al desafio 18 y chequea en el repo de datos de usuarios conectados los datos para enviarel este mensaje.
+
+26 - Tenemos un modulo de login desde el clietne que se cominica con el "modulo de conexion de usuarios" que este guarda en el repo, los ips de los usuasrios cuando se loguean. y Este modulo tiene un heartbeat (via el modulo d eheartbeat) para ver si sigue vivo.
+
+27 - El administrador puede crear desafios pagos y desafios con premio. Los jugadores comunes, creadn desafios de apuesta.
+
+28 - La apuesta de un partido es la minima entre las 2 apuestas. POr ejemplo: si estas en un torneo, y llegas a la final, vos apostas 1000000 y el otro apuesta 500, la apuesta es 500. Es imporante ver que la apuesta es por partido y no por el torneo entero.
+
+29 - El costo de entrada a un desafio (para los desafios pagos) se guarda en el repo de fixture. Tambien tenemos un repo de premios donde se guarda el premio en plata o en item
+
+30 - el armador de listado le pregunta al fixutre "ucanto falta para empezar" para poder poner el tiempo restante para arrancar el desafio.
+
+31 - el cliente le pide "che reproducime el streaming" y el filtrador de streaming por egiones le va a decir "no" si esta en una reigon no habilitadas.
+
+32 - Cuando creamos un desafio, se guarda la region en donde se creeo (en el fixture). El aceptador de desafios solo te deja aceptar desafios de tu region.
+
+33 - tenemos un listado gigante de desafios, para stremear se filtran por "regiones habilitadas" y para simular tenemos el "filtrador por region" que te deja simular solo si es de tu reigon, sino te dice "no podes"
