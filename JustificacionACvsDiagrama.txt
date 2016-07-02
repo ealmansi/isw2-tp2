@@ -1,0 +1,62 @@
+Atributo: Los partidos se den en excelente calidad sin cortes, dado que la empresa proveedora se puede llegar a caer sin previo aviso.
+Justificacion: 
+
+Atributo: Los enlaces físicos/hardware subyacente implica una cantidad de usuarios limitada / máxima por servidor.
+Justificacion:
+
+Atributo: El sistema nunca debe caerse.
+Justificacion:
+
+Atributo: Los servidores de streaming de cada region deben ser acordes a la calidad de video usualmente transmitida a los usuarios de dicha region.  
+Justificacion:
+
+Atributo: En caso de que un nodo este saturado se direcciona a otro.
+Justificacion:
+
+Atributo: Desea que haya un esfuerzo por respetar a los países en los que su legislación no permite que directamente se ingrese al sitio. El cree que el filtro por ip es una solución insuficiente, debido a la proliferación de vpns (él lo hace con Netflix todo el tiempo)..\\  \hline
+Justificacion:
+
+Atributo:Requiere que sea fácil desactivar una cuenta por un tiempo (sin poder reactivarla), para ayudar a que un adicto en recuperación no pueda tener una recaída. Que aplique para eso usuario lo mismo que para los países en los que no está disponible el sitio.
+Justificacion:
+
+Atributo: Su empresa colabora con todo lo que sea posible para ayudar a construir el módulo encargado de hacer el streaming del engine 3d cuando no puede usarse ninguno de los dos.
+Justificacion:
+
+Atributo: Debe ser posible adaptar nuevas reglamentaciones, que se apliquen independientemente en cada pais.
+Justificacion: 
+
+Atributo: El sistema debe poder correr en distintas plataformas, con lo cual se deben poder introducir cambios con este fin.
+Justificacion: 
+
+Atributo: Deben poder crearse nuevos criterios para minar datos.
+Justificacion: 
+
+Atributo: Deben poder crearse nuevos desafios en base a los datos minados.
+Justificacion: 
+
+Atributo: Se quiere poder controlar las publicidades en las simulaciones y el sitio en general.
+Justificacion: 
+
+Atributo: Deben poder adaptarse los mecanismos de streaming segun la region. 
+Justificacion: 
+
+Atributo: Poder agreger, borrar, modificar ads y publicidades que se van a ver durante las transmiciones de los partidos.
+Justificacion: 
+
+Atributo: Toda la simulación pueda irse mejorando poco a poco hasta que represente lo mejor posible la realidad sin que sea un dolor de cabeza introducir cambios
+Justificacion: 
+
+Atributo: Tiene que ser escalable a partir de “cosas chicas” o va a haber problemas. 
+Justificacion: 
+
+Atributo: Que los datos queden resguardados y sólo haya que actualizarlos esporádicamente
+Justificacion: 
+
+Atributo: Le interesa que la interfaz gráfica de usuarios tenga la calidad de un “juego”, sobre toda al momento de ver a los jugadores, las jugadas de los técnicos, colocar el nombre y logo del equipo del participante, etc… con animaciones y efectos especiales con aceleración gráfica (blurs, iluminación dinámica, depth of field, etc). 
+Justificacion: 
+
+Atributo: Quiere poder definir los ads y publicidades que se van a ver durante las transmisiones de los partidos que ellos tienen derechos a través de una interfaz gráfica que permite elegirlos (ABM) para diferentes audiencias (tipos de usuarios)\\  \hline
+Justificacion: 
+
+Atributo: Quiere poder que él y sus administradores de confianza puedan ver un dashboard en tiempo real del estado de cuenta del sitio de cada una de las regiones y niveles (incluye locales, continentales, global, etc…) y de cualquier grupo de participantes. 
+Justificacion: 
