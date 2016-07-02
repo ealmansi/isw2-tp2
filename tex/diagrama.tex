@@ -1,0 +1,14 @@
+\section{Componentes y conectores}
+\subsection{Diagrama}
+\subsection{Explicación}
+\subsubsection{General}
+\subsubsection{Conectores auxiliares}
+\textbf{Holy Connector:}
+Este conector es un conector seguro, donde se tiene de cada extremo de la comunicacion un componente \textbf{comunicador} y entre ellos se comunican por un canal NO SEGURO. 
+Por lo tanto de ambos lados nos vemos obligados a poner un componente de checksum, para conseguir la integridad de la informacion, un componente de encriptacion y desencriptacion, para poder lograr la confidencialidad y un componente que pantenemos el \textbf{estado de la comunicacion} con el cual ....
+
+
+\textbf{Video Cuca Connector y Data Cuca Connector:} 
+Ambos conectores funcionan de la misma manera, la unica diferencia es que uno es para streaming de datos y otro para streaming de videos. 
+Contamos en ambos extremos con comunicadores de streaming que se comunican por conector Holy Connector (seguro) y tambien, en ambos lados tenemos compresores, para que en la transimicion no se transmita el streaming en si, sino una version comprimida.
+En ambos extremos tenemos pipe como conectores de entrada a los componentes, esto es para hacer un \textbf{buffer} y cada tanto mandar muchos datos juntos, de esta forma evitamos los tipicos \textbf{buffering...} en los streaming.
