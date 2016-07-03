@@ -18,8 +18,10 @@
 \BOOKMARK [2][-]{subsection.5.3}{Usabilidad}{section.5}% 18
 \BOOKMARK [2][-]{subsection.5.4}{Performance}{section.5}% 19
 \BOOKMARK [2][-]{subsection.5.5}{Seguridad}{section.5}% 20
-\BOOKMARK [1][-]{section.6}{Componentes y conectores}{}% 21
-\BOOKMARK [2][-]{subsection.6.1}{Diagrama}{section.6}% 22
-\BOOKMARK [2][-]{subsection.6.2}{Explicaci\363n}{section.6}% 23
-\BOOKMARK [3][-]{subsubsection.6.2.1}{General}{subsection.6.2}% 24
-\BOOKMARK [3][-]{subsubsection.6.2.2}{Conectores auxiliares}{subsection.6.2}% 25
+\BOOKMARK [1][-]{section.6}{Arquitectura}{}% 21
+\BOOKMARK [2][-]{subsection.6.1}{Repositorios}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.2}{Diagrama}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.3}{Explicaci\363n}{section.6}% 24
+\BOOKMARK [3][-]{subsubsection.6.3.1}{General}{subsection.6.3}% 25
+\BOOKMARK [3][-]{subsubsection.6.3.2}{Conectores auxiliares}{subsection.6.3}% 26
+\BOOKMARK [3][-]{subsubsection.6.3.3}{Atributos de Calidad vs Arquitectura}{subsection.6.3}% 27
