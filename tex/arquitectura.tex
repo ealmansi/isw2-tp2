@@ -47,7 +47,29 @@ En ambos extremos tenemos, adem'as, pipes como conectores de entrada y salida. E
 
 An'alogo al HVC, pero con compresores adecuados para texto en lugar de video. 
 
-\subsection{Arquitectura de datacenters}
+\subsection{Diagrama}
+
+\subsubsection{Descripci'on general}
+
+Para describir la arquitectura, optamos por explicar c'omo se satisface cada una de los requerimientos indicados en el enunciado.
+
+\textit{Lo primero que se pretende es que abarque varios de los deportes colectivos más populares del planeta. Además del ya citado básquet, deberá incorporar a las ligas de fútbol, hockey, rugby, béisbol y fútbol americano que se determine tengan mayor número de seguidores (ej. el fútbol español o la NFL estadounidense), y que se consigan empresas que provean datos en tiempo real de la evolución del partido (tanto del desempeño de los jugadores como del partido en general). Esto último es importante porque además de la simulación de los mismos, ahora también se quiere incorporar un modo de liga de fantasía tradicional.}
+
+Para agregar deportes, lo 'unico que se debe hacer es contratar nuevos servicios de transmisi'on de partidos, agregar nuevos par'ametros del juego (i. e. agregar datos al repositorio de \textit{puntajes por acci'on}), y agregar funcionalidad al \textit{administrador de desaf'ios} para que se puedan crear desaf'ios de 'este nuevo deporte.
+
+Los datos de la evoluci'on del partido provienen de los mismos servicios que nos transmiten partidos reales. Tanto los datos de un partido, como la transmisi'on del mismo nos son transmitidos en conjunto. Ver componente \textit{Servicio de transmisi'on de partido real}.
+
+\textit{En este nuevo modo los ganadores de los desafíos ya no se deciden a través de la simulación directa de los partidos, sino del desempeño de los jugadores en partidos reales en las ligas en cuestión. Por ej. usando el caso del básquet, se podría otorgar 1 punto por cada punto que haga ese jugador en el partido, 1.5 puntos por cada asistencia, 2 por cada bloqueo o robo, -1 por cada pérdida de balón, etc... El equipo que tenga mayor suma, gana el desafío.}
+
+El puntaje que se asigna a cada acci'on de cada deporte es un par'ametro que se encuentra en el repositorio \textit{puntajes por acci'on}.
+
+\textit{Con respecto a los desafíos, ahora pueden incluir un gran número de partidos, no sólo uno. En el caso de este nuevo modo ``liga fantasía tradicional'', podrían incluirse todos los partidos de una fecha determinada de una liga, o un salteado de un conjunto de fechas cualesquiera, o incluso la liga o torneo completo.}
+
+Los desaf'ios son creados por un cliente (un jugador) desde la pantalla de lista de desaf'ios, mediante el m'odulo \textit{creador de desaf'ios}. 'Este le env'ia un pedido al 
+
+
+
+\subsubsection{Arquitectura de datacenters}
 
 Nuestro sistema tiene una arquitectura distribuida, basada en datacenters. Un datacenter contiene una gran cantidad de servidores que proveen el servicio de juego. Dentro de un datacenter, los servidores se dividen en conjuntos, y cada conjunto provee servicio a una regi'on distinta. En otras palabras, un datacenter puede proveer servicio a distintas regiones por medio de cierto conjunto de servidores.
 
@@ -91,16 +113,6 @@ Los repositorios forman parte de un esquema de almacenamiento de datos distribu'
 	\item \textbf{Informaci'on de redes sociales.} Contiene la informaci'on m'as reciente descargada de redes sociales.
 	\item \textbf{Publicidades.} Contiene las publicidades m'as recientes recibidas desde los proveedores de publicidad.
 \end{itemize}
-
-\subsection{Diagrama}
-\subsection{Explicación}
-\subsubsection{General}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 \subsubsection{Atributos de Calidad vs Arquitectura}
 A continuacion listamos todos los atributos de calidad detallados en la seccion anterior y explicamos como hicimos para resolverlo en el diagrama de componentes y conectores.
