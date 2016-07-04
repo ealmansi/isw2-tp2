@@ -1,5 +1,48 @@
 
 \section{Arquitectura}
+\subsection{Conectores}
+\subsubsection{Notacion}
+
+\begin{itemize}
+\item Pipe \includegraphics[height=0.5cm]{diagramas/NPIPE} 
+\item HC (Holy Connector) \includegraphics[height=0.5cm]{diagramas/NHC} 
+\item HVC (Holy Video Connector) \includegraphics[height=0.5cm]{diagramas/NHVC} 
+\item HDC (Holy Data Connector) \includegraphics[height=0.5cm]{diagramas/NHDC} 
+\item HCCA (Holy Connector Call Asincronico) \includegraphics[height=0.5cm]{diagramas/NHCCA} 
+
+\end{itemize}
+
+\subsubsection{HC (Holy Connector)}
+
+\includegraphics[height=9cm]{diagramas/HC} 
+
+Este conector es un conector seguro, donde se tiene de cada extremo de la comunicacion un componente \textbf{comunicador} y entre ellos se comunican por un canal NO SEGURO. 
+Por lo tanto de ambos lados nos vemos obligados a poner un componente de checksum, para conseguir la integridad de la informacion, un componente de encriptacion y desencriptacion, para poder lograr la confidencialidad y un componente que pantenemos el \textbf{estado de la comunicacion} con el cual ....
+Es importante ver que entre los dos extremos utilizamos el conector de client-server, entonces cuando usemos el Holy Connector vamos a estar usando implicitamente un client-server.
+
+
+\subsubsection{HVC (Holy Video Connector)}
+
+\includegraphics[height=5cm]{diagramas/HVC} 
+
+
+Contamos en ambos extremos con comunicadores de streaming que se comunican por conector Holy Connector (seguro) y tambien, en ambos lados tenemos compresores, para que en la transimicion no se transmita el streaming en si, sino una version comprimida.
+En ambos extremos tenemos pipe como conectores de entrada a los componentes, esto es para hacer un \textbf{buffer} y cada tanto mandar muchos datos juntos, de esta forma evitamos los tipicos \textbf{buffering...} en los streaming.
+
+
+\subsubsection{HDC (Holy Data Connector)}
+
+\includegraphics[height=5cm]{diagramas/HDC} 
+
+Contamos en ambos extremos con comunicadores de streaming que se comunican por conector Holy Connector (seguro) y tambien, en ambos lados tenemos compresores, para que en la transimicion no se transmita el streaming en si, sino una version comprimida.
+En ambos extremos tenemos pipe como conectores de entrada a los componentes, esto es para hacer un \textbf{buffer} y cada tanto mandar muchos datos juntos, de esta forma evitamos los tipicos \textbf{buffering...} en los streaming.
+
+
+\subsubsection{HCCA (Holy Connector Call Asincronico)}
+
+\includegraphics[height=9cm]{diagramas/HCCA} 
+
+Este conector es identico al Holy Connector, con la diferencia de que en lugar de usar un Client-Server como conector intermedio, utilizamos un conector \textbf{Asincronico}.
 
 \subsection{Repositorios}
 
@@ -33,23 +76,39 @@ consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-
-\subsubsection{Conectores auxiliares}
-\textbf{Holy Connector:}
-Este conector es un conector seguro, donde se tiene de cada extremo de la comunicacion un componente \textbf{comunicador} y entre ellos se comunican por un canal NO SEGURO. 
-Por lo tanto de ambos lados nos vemos obligados a poner un componente de checksum, para conseguir la integridad de la informacion, un componente de encriptacion y desencriptacion, para poder lograr la confidencialidad y un componente que pantenemos el \textbf{estado de la comunicacion} con el cual ....
-
-
-\textbf{Video Cuca Connector y Data Cuca Connector:} 
-Ambos conectores funcionan de la misma manera, la unica diferencia es que uno es para streaming de datos y otro para streaming de videos. 
-Contamos en ambos extremos con comunicadores de streaming que se comunican por conector Holy Connector (seguro) y tambien, en ambos lados tenemos compresores, para que en la transimicion no se transmita el streaming en si, sino una version comprimida.
-En ambos extremos tenemos pipe como conectores de entrada a los componentes, esto es para hacer un \textbf{buffer} y cada tanto mandar muchos datos juntos, de esta forma evitamos los tipicos \textbf{buffering...} en los streaming.
-
 \subsubsection{Atributos de Calidad vs Arquitectura}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+A continuacion listamos todos los atributos de calidad detallados en la seccion anterior y explicamos como hicimos para resolverlo en el diagrama de componentes y conectores.
+
+\begin{itemize}
+\item Atributo: 
+\item Justificacion:
+
+
+\item Atributo: 
+\item Justificacion:
+
+\item Atributo: 
+\item Justificacion:
+
+\item Atributo: 
+\item Justificacion:
+
+\item Atributo: 
+\item Justificacion:
+
+\item Atributo: 
+\item Justificacion:
+
+\item Atributo: 
+\item Justificacion:
+
+\item Atributo: 
+\item Justificacion:
+
+\item Atributo: 
+\item Justificacion:
+
+\item Atributo: 
+\item Justificacion:
+\end{itemize}
 
