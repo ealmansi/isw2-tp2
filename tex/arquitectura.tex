@@ -50,25 +50,23 @@ An'alogo al HVC, pero con compresores adecuados para texto en lugar de video.
 
 \subsubsection{Arquitectura orientada a datacenters}
 
-Nuestro sistema tiene una arquitectura distribuida, basada en datacenters. Un datacenter contiene una gran cantidad de servidores que proveen el servicio de juego. Dentro de un datacenter, los servidores se dividen en conjuntos, y cada conjunto provee servicio a una regi'on distinta. En otras palabras, un datacenter puede proveer servicio a distintas regiones por medio de cierto conjunto de servidores.
+Nuestro sistema tiene una arquitectura distribuida, basada en datacenters. Un datacenter contiene una gran cantidad de servidores que proveen el servicio de juego. Dentro de un datacenter, los servidores se dividen en conjuntos, y cada conjunto provee servicio a una regi'on distinta. Una regi'on es uno o m'as pa'ises. En el caso extremo, una regi'on son todos los pa'ises del mundo. Notar que esto significa que un datacenter puede proveer servicio a varias regiones.
 
-Todas las peticiones ingresantes en un datacenter son recibidas y procesadas por una m'aquina de tipo \textit{router}. Un router redirige la petici'on a alg'un servidor de la regi'on correspondiente. Los routers pueden rutear al conjunto de servidores de cualquiera de las regiones servidas en el datacenter. Por ejemplo, podr'ia haber un datacenter en Argentina, que provea el servicio para Argentina, Brasil y Uruguay; en este caso, los routers del datacenter procesan peticiones de las tres regiones.
+Todas las peticiones que ingresan en un datacenter son recibidas y procesadas por una m'aquina de tipo \textit{router}. Un router redirige la petici'on a alg'un servidor de la regi'on a la que est'e dirigida la petici'on. Los routers pueden rutear al conjunto de servidores de cualquiera de las regiones servidas en el datacenter. Por ejemplo, podr'ia haber un datacenter en Argentina, que provea el servicio para Argentina, Brasil y Uruguay; en este caso, los routers del datacenter procesan peticiones de las tres regiones.
 
 El siguiente diagrama muestra lo descripto. 
 
 \includegraphics[width=15cm]{diagramas/datacenter.png}
 
 \noindent
-El datacenter de la figura tiene dos routers, que procesan pedidos para dos regiones. Cada regi'on se compone de tres servidores. Notar que una de las regiones contiene dos tipos de repositorios, A1 y A2. Estos repositorios aparecen en todos los servidores de la regi'on, debido a que los datos est'an distribuidos sobre todos estos servidores. An'alogamente, los servidores de la otra regi'on, tienen repositorios B1 y B2, distribuidos.
+El datacenter de la figura tiene dos routers, que procesan pedidos para dos regiones. Cada regi'on se compone de tres servidores. Notar que una de las regiones contiene dos tipos de repositorios, A1 y A2. Estos repositorios aparecen en todos los servidores de la regi'on, debido a que los datos est'an distribuidos sobre todos estos servidores. An'alogamente, los servidores de la otra regi'on, tienen repositorios B1 y B2, distribuidos. Cada servidor tiene un \textit{motor de bases de datos distribuidas}, que administra el acceso a los repositorios distribu'idos.
 
-Cada servidor tiene un componente que administra el acceso a los repositorios distribu'idos, que forman parte del sistema de distribuci'on de datos sobre el conjunto de servidores de una regi'on en un datacenter.
-
-Este esquema de distribuci'on de datos sobre servidores es lo que permite que el sistema sea escalable. Adem'as provee otras bondades como capacidad de replicaci'on de datos, necesario para tener alta disponibilidad. M'as a'un, es posible implementar distribuci'on de datos entre datacenters, haciendo que el conjunto de servidores est'e distribu'ido en m'as de un datacenter. Esto se muestra en la siguiente figura.
+Este esquema de distribuci'on de datos sobre servidores es lo que permite que el sistema sea escalable. Adem'as provee otras bondades como capacidad de replicaci'on de datos, necesario para tener alta disponibilidad. M'as a'un, es posible implementar distribuci'on de datos entre datacenters, si hacemos que el conjunto de servidores de una regi'on est'e distribu'ido en m'as de un datacenter. Esto se muestra en la siguiente figura.
 
 \includegraphics[width=15cm]{diagramas/datacenterx2.png}
 
 \noindent
-De esta forma podemos implementar replicaci'on de datos entre datacenters, y as'i si un datacenter se cae, no perdemos datos ni capacidad de proveer servicio a una regi'on.
+En particular, de esta forma podemos implementar replicaci'on de datos entre datacenters, y as'i si un datacenter se cae, no perdemos datos ni capacidad de proveer servicio a una regi'on.
 
 \subsection{Repositorios distribuidos}
 
@@ -97,7 +95,7 @@ Como dijimos, los repositorios forman parte de un esquema de almacenamiento de d
 
 Para describir la arquitectura, optamos por explicar c'omo se satisface cada una de los requerimientos indicados en el enunciado. Para 'esto, decidimos citar textualmente, cada p'arrafo del enunciado, y describir los aspectos del sistema relacionados. Si bien la descripci'on no abarca todos los aspectos del sistema (una explicaci'on exhaustiva demandar'ia demasiado tiempo y espacio), es un buen punto de partida para entender el funcionamiento general del mismo.
 
-\textit{Lo primero que se pretende es que abarque varios de los deportes colectivos más populares del planeta. Además del ya citado básquet, deberá incorporar a las ligas de fútbol, hockey, rugby, béisbol y fútbol americano que se determine tengan mayor número de seguidores (ej. el fútbol español o la NFL estadounidense), y que se consigan empresas que provean datos en tiempo real de la evolución del partido (tanto del desempeño de los jugadores como del partido en general). Esto último es importante porque además de la simulación de los mismos, ahora también se quiere incorporar un modo de liga de fantasía tradicional.}
+\textbf{\textit{Lo primero que se pretende es que abarque varios de los deportes colectivos más populares del planeta. Además del ya citado básquet, deberá incorporar a las ligas de fútbol, hockey, rugby, béisbol y fútbol americano que se determine tengan mayor número de seguidores (ej. el fútbol español o la NFL estadounidense), y que se consigan empresas que provean datos en tiempo real de la evolución del partido (tanto del desempeño de los jugadores como del partido en general). Esto último es importante porque además de la simulación de los mismos, ahora también se quiere incorporar un modo de liga de fantasía tradicional.}}
 
 Para agregar deportes, lo 'unico que se debe hacer es contratar nuevos servicios de transmisi'on de partidos, agregar nuevos par'ametros del juego (i. e. agregar datos al repositorio de \textit{puntajes por acci'on}), y agregar funcionalidad al \textit{administrador de desaf'ios} para que se puedan crear desaf'ios de 'este nuevo deporte.
 
@@ -149,7 +147,7 @@ La cuota de entrada y los premios no monetarios se fijan a la hora de crear un d
 
 Para inscribirse a un desaf'io, un usuario utiliza el \textit{listador de desaf'ios} que, adem'as de mostrar todos los desaf'ios disponibles, permite inscribirse a ellos. La informaci'on de la inscripci'on es enviada a un administrador de desaf'ios, que le ordena al administrador de fixtures modificar el fixture con el nuevo inscripto. Comenzado un desaf'io, el administrador de fixtures no aceptar'a ning'un cambio sobre el fixture. Por lo tanto, no habr'a nuevas inscripciones.
 
-Asimismo es posible recuperar la informaci'on sobre los participantes de un desaf'io en curso, a trav'es del fixture del desaf'io. Los rankings de un desaf'io son confeccionados por un \textit{calculador de rankings} que, bas'andose en un fixture, calculan la posici'on de cada jugador.
+Asimismo es posible recuperar la informaci'on sobre los participantes de un desaf'io en curso, a trav'es del fixture del desaf'io. Los rankings de un desaf'io son confeccionados por un \textit{calculador de rankings de desaf'ios} que, bas'andose en un fixture, calculan la posici'on de cada jugador.
 
 \textit{
 De hecho, el estado de los partidos de los desafíos (en cualquiera de sus modos) debería poder seguirse en vivo a través del sitio, como cualquier sitio de noticias deportivo. Además, se está muy avanzado en conversaciones para acceder a streams de videos de diferentes ligas y que el partido pueda seguirse legalmente a través de la plataforma en algunas regiones habilitadas. Los dueños de los derechos de transmisión, a cambio, quieren poder vender espacios de publicidad en el sitio y acceder a algunos datos de preferencias/comportamiento de los usuarios, además de sus cuentas de mails para efectuar campañas de marketing más específicas.
@@ -163,7 +161,6 @@ A los due\~nos de los derechos de transmisi'on se les puede dar acceso a los rep
 
 \textit{
 Con respecto al modo de simulación, se pretende extender las reglas utilizando a un comité de expertos (jugadores, técnicos, estadísticos, periodistas deportivos, etc.) de cada deporte para intentar que se asemeje aún más a la realidad. En el caso del básquet incorporará fouls, tiros libres, cambios de jugadores (suplentes), minutos en cancha + cansancio, tiempos con cambios de lado de la cancha, estadios locales y visitantes, condiciones climáticas, movimiento de los jugadores y sus posiciones en la cancha al efectuar acciones, etc. para extrapolar más certeramente la actuación del jugador en base a sus estadísticas.
-
 Al mismo tiempo se busca modificar el simulador para que en vez de un log de salida, provea un stream continuo de “minuto a minuto” mucho más detallado que el log de la versión anterior. La razón de esta decisión es que se está por llegar a un acuerdo por la compra de un motor gráfico que permita a los participantes ver el partido a partir del stream de salida del simulador. En este momento se negocia por al menos dos motores diferentes.
 }
 
@@ -188,7 +185,31 @@ Las redes sociales son constantemente sensadas por un \textit{administrador de r
 \textit{Se espera que el sistema sea utilizado por millones de personas a lo largo y ancho del planeta y que se llegue a ese número de suscriptos muy rápidamente (hay mucho interés de que uno de los países incluidos en la versión inicial sea China). Algunos especialistas en redes plantearon entonces la necesidad de regionalizar la plataforma en varios niveles y que los participantes de cada región sólo compitan entre sí en desafíos locales o nacionales (que puede ser de las ligas del mundo más seguidas para esa región). Además, se cree, esto debería facilitar la logística con los bancos, el idioma de los chats, los pagos en la moneda local, la entrega de premios, etc.
 }
 
+Como vimos, la arquitectura del sistema est'a orientada a datacenters. Si se quisiera habilitar el servicio en China, una buena idea ser'ia construir un datacenter en el continente asi'atico. Dicho datacenter contendr'ia servidores que sirven, en particular, al antedicho pa'is.
 
+Ya hemos hablado de la organizaci'on de servidores por regiones. Para tener ligas locales, continentales y mundiales, podemos crear regiones que abarquen los pa'ises que deseamos que conformen la liga. Para nuestro sistema, cualquier conjunto de pa'ises es id'entico, con lo cual podemos servir un campeonato mundial de la misma forma que servimos un torneo local. El 'unico detalle es que en el caso de una liga local, lo m'as razonable es ubicarla en un datacenter cercano al pa'is en el que se desarrolla la liga, mientras que en una liga mundial, la mejor elecci'on del (o los) datacenter que proveer'a el servicio no es tan obvia. Puede que cualquier datacenter sea una buena elecci'on.
+
+\textit{El ranking de los jugadores más ganadores del prototipo se mantiene pero con algunos cambios, ya que desafíos con muchos usuarios o muy largos en tiempo otorgarán mayor puntaje que los “mano a mano” convencionales. Dicho ranking servirá para acceder a torneos de niveles regionales o internacionales. Por ejemplo, en base a las limitaciones del hardware y conexiones con el que se cuenta para servidores, los mejores 10.000 participantes de Argentina podrán acceder a una nueva lista de desafíos con los restantes 10.000 mejores jugadores de cada país del resto de Latinoamérica. Y los mejores 1.000 de esta nueva región podrán competir en un nivel mundial con los 1.000 mejores de Europa, Asia, Norteamérica, África y Oceanía.
+Para un participante mantenerse en los rankings de cada nivel, los resultados de la región mundial, no influirán en los del nivel regional (por ej. Europa), ni en los de nivel nacional o local, aunque dejar de competir por un tiempo en alguno hará restar posiciones, lo que eventualmente puede significar perder acceso a los niveles superiores. Se quiere tener campeones mundiales anuales, y que las finales sean verdaderos eventos a transmitirse en vivo a los millones de usuarios del sitio de todas las regiones para luego hacer promociones y giras con ellos alrededor del mundo. Esto implica que los administradores pueden hacer visibles desafíos de niveles superiores a usuarios que no tienen normalmente acceso para que el resto de los usuarios puedan seguirlos en vivo. Se plantea que cada vez que comience una nueva temporada o año, se reinicie el ranking del sitio.
+}
+
+Cuando un administrador crea un desaf'io internacional, se computa el ranking de todos los jugadores de las regiones intervinientes en el desaf'io. 'Esto lo hace un \textit{calculador de rankings de usuarios}. El resultado se almacena en el repositorio \textit{rankings de usuarios}.
+
+Con esta informaci'on, cada vez que un usuario desea inscribirse a dicho desaf'io, el administrador de desaf'ios consulta el ranking, y verifica si el usuario se encuentra entre los primeros $n$ del ranking.
+
+Observar que los resultados de la regi'on mundial no afectan a las estad'isticas de otras regiones, gracias a que los servidores de partido s'olo modifican las estad'isticas de usuario de su conjunto. En otras palabras, los servidores de regi'on mundial s'olo modifican la base de datos distribu'ida de regi'on mundial.
+
+\textit{
+Es importante que no sólo los participantes puedan acceder a su estado de cuenta, sino que administradores del más alto nivel de privilegios también puedan hacerlo para cualquier jugador. Además, deberían ser capaces de ver los movimientos y el balance del sitio de juegos en cada región o a nivel global. Como se quiere evitar potenciales problemas con entidades gubernamentales de control (fundamentalmente del fisco) en los países que opere el sitio, se desea que estén diseñados e implementen mecanismos de tal manera que se pueda brindar la transparencia deseada, tanto en movimientos de dinero, como en el funcionamiento correcto de las simulaciones.
+}
+
+Todos los programas cliente de tipo administrador cuentan con un \textit{administrador de cuentas de usuario}, que permite visualizar toda la informaci'on disponible sobre los usuarios.
+
+Se garantiza la seguridad de las transacciones utilizando Holy Connectors, que garantizan seguridad. Todas las transacciones pueden ser listadas tanto por usuarios como administradores, a trav'es del \textit{listador de transacciones}, el cual consulta el repositorio de \textit{transacciones}.
+
+\textit{Por último, se sabe que la legislación de varios países prohíbe el acceso a este tipo de juegos. Dependiendo del caso, se deberá evitar que: directamente el usuario acceda al sitio o que no puedan registrarse o bien registrarse, pero sólo jugar los desafíos gratuitos sin poder ganar premios o pudiendo ganar premios que no sean sumas de dinero.}
+
+Cuando un usuario solicita registrarse en el sistema, un componente \textit{registrador} verifica que el usuario pertenezca a una regi'on habilitada para jugar. Dicha informaci'on se encuentra en el repositorio \textit{regiones habilitadas para jugar y/o apostar}. An'alogamente, cuando un usuario solicita inscribirse a un desaf'io, el administrador de desaf'ios chequea contra mismo el repositorio, que el usuario efectivamente tenga permiso para apostar.
 
 \subsubsection{Atributos de Calidad vs Arquitectura}
 A continuacion listamos todos los atributos de calidad detallados en la seccion anterior y explicamos como hicimos para resolverlo en el diagrama de componentes y conectores.
