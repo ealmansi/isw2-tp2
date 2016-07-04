@@ -66,7 +66,7 @@ Este esquema de distribuci'on de datos sobre servidores es lo que permite que el
 
 \includegraphics[width=15cm]{diagramas/datacenterx2.png}
 
-\noident
+\noindent
 De esta forma podemos implementar replicaci'on de datos entre datacenters, y as'i si un datacenter se cae, no perdemos datos ni capacidad de proveer servicio a una regi'on.
 
 \subsection{Repositorios}
@@ -80,6 +80,7 @@ Los repositorios forman parte de un esquema de almacenamiento de datos distribu'
 	\item \textbf{Estad'isticas de jugador.} Contiene informaci'on estad'istica, como por ejemplo la cantidad de partidos ganados y perdidos, de cada jugador.
 	\item \textbf{Informaci'on de eventos reales.} Contiene toda la informaci'on sobre eventos reales en los que se basan partidos fantas'ia.
 	\item \textbf{Usuarios conectados a desaf'io.} Contiene ID e IP de los usuarios actualmente conectados a la sala de un desaf'io.
+	\item \textbf{Regiones habilitadas para jugar.} Contiene las regiones a las que se les puede prestar servicio.
 	\item \textbf{Regiones habilitadas para transmisi'on de partidos fantas'ia.} Contiene las regiones a las que se les puede transmitir un partido real desde 'esta regi'on.
 	\item \textbf{Datos de jugador.} Contiene los datos de un jugador de la regi'on.
 	\item \textbf{Estado de partido en ejecuci'on.} Contiene los datos de estado, por ejemplo puntaje de cada equipo, de los partidos que se est'an ejecutando en este momento.
@@ -105,27 +106,20 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 A continuacion listamos todos los atributos de calidad detallados en la seccion anterior y explicamos como hicimos para resolverlo en el diagrama de componentes y conectores.
 
 \begin{itemize}
-\item Atributo: Los partidos deben servirse con excelente calidad y sin cortes a pesar de que servidores de la empresa proveedora se pueden caer sin previo aviso.
-\item Justificacion:
-
-
 \item Atributo: El sistema debe evitar que los servidores superen su l'imite de clientes y se caigan.
-\item Justificacion:
+\item Justificaci'on: Los componentes \textit{router} que reciben las peticiones de un cliente mantienen contadores acerca de la carga de los servidores. Cuando detectan una posible sobrecarga consultan la cantidad de usuarios conectados a los servidores de una regi'on. Lo hacen consultando el repositorio \textit{usuarios conectados a desaf'io}. Si hay sobrecarga, no se responde a las peticiones.
 
 \item Atributo: Desea que haya un esfuerzo por respetar a los países en los que su legislación no permite que directamente se ingrese al sitio.
-\item Justificacion:
+\item Justificacion: Los \textit{router} que reciban peticiones provenientes de regiones no habilitadas, no ser'an resueltas. Las regiones no habilitadas se consultan en el repositorio \textit{regiones habilitadas para jugar}.
 
 \item Atributo: Se requiere que sea fácil desactivar una cuenta por un tiempo, para ayudar a los adictos en recuperación.
-\item Justificacion:
+\item Justificacion: Se incluye un m'odulo para desactivar una cuenta, en el programa cliente.
 
 \item Atributo: El simulador debe poder extenderse para soportar reglamentaciones nuevas ya que se espera poder incluir pa'ises adicionales.
-\item Justificacion:
+\item Justificacion: La modificabilidad el simulador corre por cuenta de los desarolladores del mismo. En el caso del modo fantas'ia, cuya operatoria depende de nuestros desarrolladores, se incluye un repositorio con datos de configuraci'on para los partidos de dicho modo.
 
-\item Atributo: El sistema debe correr en la mayor cantidad de plataformas posible. El sistema debe poder extenderse f'acilmente para incluir nueva
-\item Justificacion:
-
-\item Atributo: Se deben poder agregar nuevos criterios para hacer data mining f'acilmente.
-\item Justificacion:
+\item Atributo: El sistema debe correr en la mayor cantidad de plataformas posible. El sistema debe poder extenderse f'acilmente para incluir nuevas plataformas.
+\item Justificacion: La arquitectura del sistema no asume requerimientos de hardware o software (salvo algunos muy b'asicos) sobre el cliente. Para poder soportar todo el abanico de dispositivos, desde aquellos con recursos de hardware y software limitados como aquellos de altas prestaciones, se incluyen dos motores gr'aficos, uno 3D (de altos requerimientos) y otro 2D (de bajos requerimientos). La decisi'on sobre cu'al utilizar se toma en base a los recursos disponibles al momento de la recepci'on de los resultados de la simulaci'on.
 
 \item Atributo: 
 \item Justificacion:
