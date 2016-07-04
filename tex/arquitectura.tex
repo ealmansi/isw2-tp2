@@ -63,7 +63,6 @@ Los datos de la evoluci'on del partido provienen de los mismos servicios que nos
 El puntaje que se asigna a cada acci'on de cada deporte es un par'ametro que se encuentra en el repositorio \textit{puntajes por acci'on}.
 
 \textit{Con respecto a los desafíos, ahora pueden incluir un gran número de partidos, no sólo uno. En el caso de este nuevo modo liga fantasía tradicional, podrían incluirse todos los partidos de una fecha determinada de una liga, o un salteado de un conjunto de fechas cualesquiera, o incluso la liga o torneo completo.
-
 En el caso de la simulación, se arman torneos de diferentes formatos (se elige al momento de plantearse el desafío, playoff, liga, combinado zonas, etc.) con todos los equipos participantes. En este último caso se agrega la duración total “artificial” del torneo en semanas, pues se pretende que los partidos no se resuelvan más de forma inmediata si no que puedan “vivirse” como los
 reales (más información luego).
 }
@@ -150,13 +149,47 @@ A continuacion listamos todos los atributos de calidad detallados en la seccion 
 \item Atributo: El sistema debe correr en la mayor cantidad de plataformas posible. El sistema debe poder extenderse f'acilmente para incluir nuevas plataformas.
 \item Justificacion: La arquitectura del sistema no asume requerimientos de hardware o software (salvo algunos muy b'asicos) sobre el cliente. Para poder soportar todo el abanico de dispositivos, desde aquellos con recursos de hardware y software limitados como aquellos de altas prestaciones, se incluyen dos motores gr'aficos, uno 3D (de altos requerimientos) y otro 2D (de bajos requerimientos). La decisi'on sobre cu'al utilizar se toma en base a los recursos disponibles al momento de la recepci'on de los resultados de la simulaci'on.
 
-\item Atributo: 
+%\item Atributo: Se deben poder agregar nuevos criterios para hacer data mining f'acilmente.
+%\item Justificacion:
+
+%\item Atributo: Deben poder crearse nuevos desaf'ios en base a los datos minados, las estad'isticas disponibles de los usuarios.
+%\item Justificacion:
+
+\item Atributo: Se quiere poder controlar las publicidades en las simulaciones y el sitio en general en base a el tipo de audencia.
 \item Justificacion:
 
-\item Atributo: 
+\item Atributo: La simulaci'on debe poder mejorarse para que sea m'as realista de manera incremental sin que los cambios sean costosos.
 \item Justificacion:
 
-\item Atributo: 
+\item Atributo: Los datos de pago deben guardarse para que el usuario s'olo tenga que actualizarlos espor'adicamente.
 \item Justificacion:
+
+\item Atributo:  La interfaz gr'afica de los usuarios debe ser similar a la de un videojuego (sobre toda al momento de ver a los jugadores, las jugadas de los técnicos, colocar el nombre y logo del equipo del participante, con animaciones y efectos especiales con aceleración gráfica).
+\item Justificacion:
+
+\item Atributo: Los administradores deben poder definir a trav'es de un ABM qu'e ads mostrar seg'un el tipo de audiencia.
+\item Justificacion:
+
+\item Atributo: La calidad del streaming debe adaptarse al bandwidth disponible para que la reproducci'on del video sea fluida.
+\item Justificacion:
+
+\item Atributo: Se debe utilizar el engine 3D siempre que sea posible. Si el cliente no lo soporta adecuadamente debe utilizarse el 2D.
+\item Justificacion:
+
+\item Atributo: Los desf'ios globales que requiere el streaming a m'ultiples regiones simult'aneamente debe funcionar satisfactoriamente. La experiencia del usuario no debe verse afectada.
+\item Justificacion:
+
+\item Atributo: Los pagos y las credenciales de pago de los usuarios deben manejarse con seguridad, debe impedirse que hackers redireccionen los pagos o interfieran con las transacciones.
+\item Justificacion:
+
+\item Atributo: Los datos de usuarios deben estar protegidos contra robos. Tiene que asegurarse la confidencialidad e integridad de los mismos.
+\item Justificacion:
+
+\item Atributo: Los m'odulos de las simulaciones deben porder ser inspeccionados f'acilmente por entes de control externos. Se deben poder reproducir las simulaciones en sistemas testigos para verificar que los resultados no son fraudulentos.
+\item Justificacion:
+
+\item Atributo: Todas las transacciones de dinero deben estar logueadas de manera segura para poder presentarlas como evidencia a las autoridades de cada regi'on.
+\item Justificacion:
+
 \end{itemize}
 
