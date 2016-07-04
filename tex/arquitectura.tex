@@ -1,6 +1,25 @@
 
 \section{Arquitectura}
 
+\subsection{Arquitectura de datacenters}
+
+Nuestro sistema tiene una arquitectura distribuida, basada en datacenters. Un datacenter contiene una gran cantidad de servidores que proveen el servicio de juego. Dentro de un datacenter, los servidores se dividen en conjuntos, y cada conjunto provee servicio a una regi'on distinta. En otras palabras, un datacenter puede proveer servicio a distintas regiones por medio de cierto conjunto de servidores.
+
+Todas las peticiones ingresantes en un datacenter son recibidas y procesadas por una m'aquina de tipo \textit{router}. Un router redirige la petici'on a alg'un servidor de la regi'on correspondiente. Los routers pueden rutear al conjunto de servidores de cualquiera de las regiones servidas en el datacenter. Por ejemplo, podr'ia haber un datacenter en Argentina, que provea el servicio para Argentina, Brasil y Uruguay; en este caso, los routers del datacenter procesan peticiones de las tres regiones.
+
+El siguiente diagrama muestra lo descripto.
+
+\includegraphics[width=15cm]{diagramas/datacenter.png}
+
+\noindent
+El datacenter de la figura tiene dos routers, que procesan pedidos para dos regiones. Cada regi'on se compone de tres servidores. Notar que una de las regiones contiene dos tipos de repositorios, A1 y A2. Estos repositorios aparecen en todos los servidores de la regi'on, debido a que los datos est'an distribuidos sobre todos estos servidores. An'alogamente, los servidores de la otra regi'on, tienen repositorios B1 y B2, distribuidos.
+
+Cada servidor tiene un componente, denominado \textit{agente}. Un agente es la interfaz de todos los repositorios que contiene un servidor, y forman parte del sistema de distribuci'on de datos sobre el conjunto de servidores de una regi'on en un datacenter.
+
+Este esquema de distribuci'on de datos sobre servidores es lo que permite que el sistema sea escalable. Adem'as provee otras bondades como capacidad de replicaci'on de datos, necesario para tener alta disponibilidad. M'as a'un, es posible implementar distribuci'on de datos entre datacenters, haciendo que el conjunto de servidores est'e distribu'ido en m'as de un datacenter. Esto se muestra en la siguiente figura.
+
+\includegraphics[width=15cm]{diagramas/datacenterx2.png}
+
 \subsection{Repositorios}
 
 Los repositorios forman parte de un esquema de almacenamiento de datos distribu'ido. Un repositorio distribu'ido en un datacenter contiene informaci'on sobre la regi'on en la que se encuentra el datacenter.
