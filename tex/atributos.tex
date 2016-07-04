@@ -1,77 +1,51 @@
 \section{Atributos de calidad}
+
+
 \subsection{Disponibilidad}
 
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Los partidos se den en excelente calidad sin cortes, dado que la empresa proveedora se puede llegar a caer sin previo aviso.\\  \hline
-  \textbf{Fuente} & Usuario\\  \hline
-  \textbf{Estímulo} & Se desea ver el streaming de video.\\  \hline
+  \textbf{Descripción} & Los partidos deben servirse con excelente calidad y sin cortes a pesar de que servidores de la empresa proveedora se pueden caer sin previo aviso.\\  \hline
+  \textbf{Fuente} & Servidor del proveedor\\  \hline
+  \textbf{Estímulo} & Se cae, por lo tanto deja de enviar datos.\\  \hline
   \textbf{Entorno} & Normal\\  \hline
   \textbf{Artefacto} & Sistema\\  \hline
-  \textbf{Respuesta} & Se calcula que tipo de conexion tiene el usuario y se comienza el streming de video.\\  \hline
-  \textbf{Medición} & Se producen a lo sumo 2 cortes de cada 1000 streamings.\\  \hline
+  \textbf{Respuesta} & Se identifica la ca'ida del server por timeout y se inicia una nueva comunicaci'on con otro server.\\  \hline
+  \textbf{Medición} & El tamano del buffer de streaming es suficiente para que s'olo se perciba la ca'ida 0,001 seg/hora dada que el uptime de los proveedores del servidor es de 95\%.\\  \hline
   \end{tabular}
 \end{center} 
+
+%% \begin{center}
+%%   \begin{tabular}{| l | p{10cm} | }
+%%     \hline
+%%   \textbf{Descripción} & Los servidores de streaming de cada region deben ser acordes a la calidad de video usualmente transmitida a los usuarios de dicha region.\\  \hline
+%%   \textbf{Fuente} & UNA FUENTE\\  \hline
+%%   \textbf{Estímulo} & UN ESTIMULO.\\  \hline
+%%   \textbf{Entorno} & UN ENTORNO\\  \hline
+%%   \textbf{Artefacto} & UN ARTEFACTO\\  \hline
+%%   \textbf{Respuesta} & UNA RESPUESTA\\  \hline
+%%   \textbf{Medición} & UNA MEDICION\\  \hline
+%%   \end{tabular}
+%% \end{center} 
 
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Los enlaces físicos/hardware subyacente implica una cantidad de usuarios limitada / máxima por servidor.\\  \hline
-  \textbf{Fuente} & UNA FUENTE\\  \hline
-  \textbf{Estímulo} & UN ESTIMULO.\\  \hline
-  \textbf{Entorno} & UN ENTORNO\\  \hline
-  \textbf{Artefacto} & UN ARTEFACTO\\  \hline
-  \textbf{Respuesta} & UNA RESPUESTA\\  \hline
-  \textbf{Medición} & UNA MEDICION\\  \hline
-  \end{tabular}
-\end{center} 
-
-
-\begin{center}
-  \begin{tabular}{| l | p{10cm} | }
-    \hline
-  \textbf{Descripción} & El sistema nunca debe caerse.\\  \hline
-  \textbf{Fuente} & UNA FUENTE\\  \hline
-  \textbf{Estímulo} & UN ESTIMULO.\\  \hline
-  \textbf{Entorno} & UN ENTORNO\\  \hline
-  \textbf{Artefacto} & UN ARTEFACTO\\  \hline
-  \textbf{Respuesta} & UNA RESPUESTA\\  \hline
-  \textbf{Medición} & UNA MEDICION\\  \hline
-  \end{tabular}
-\end{center} 
-
-\begin{center}
-  \begin{tabular}{| l | p{10cm} | }
-    \hline
-  \textbf{Descripción} & Los servidores de streaming de cada region deben ser acordes a la calidad de video usualmente transmitida a los usuarios de dicha region..\\  \hline
-  \textbf{Fuente} & UNA FUENTE\\  \hline
-  \textbf{Estímulo} & UN ESTIMULO.\\  \hline
-  \textbf{Entorno} & UN ENTORNO\\  \hline
-  \textbf{Artefacto} & UN ARTEFACTO\\  \hline
-  \textbf{Respuesta} & UNA RESPUESTA\\  \hline
-  \textbf{Medición} & UNA MEDICION\\  \hline
-  \end{tabular}
-\end{center} 
-
-
-\begin{center}
-  \begin{tabular}{| l | p{10cm} | }
-    \hline
-  \textbf{Descripción} & En caso de que un nodo este saturado se direcciona a otro.\\  \hline
+  \textbf{Descripción} & El sistema debe evitar que los servidores superen su l'imite de clientes y se caigan.\\  \hline
   \textbf{Fuente} & Usuario\\  \hline
   \textbf{Estímulo} & Se hace un pedido.\\  \hline
-  \textbf{Entorno} & Sistema con nodo saturado\\  \hline
+  \textbf{Entorno} & Sistema con servidor saturado\\  \hline
   \textbf{Artefacto} & Sistema\\  \hline
-  \textbf{Respuesta} & Se selecciona otro nodo y se continua el servicio con el.\\  \hline
-  \textbf{Medición} & En el 0.01\% el sistema se satura y no se direcciona a otro nodo.\\  \hline
+  \textbf{Respuesta} & Se selecciona un servidor que no est'a saturado y se direcciona al cliente a 'el.\\  \hline
+  \textbf{Medición} & El 0.01\% de veces un servidor se satura y se direcciona un cliente a 'el antes de que la notificaci'on de que est'a saturado llegue al router.\\  \hline
   \end{tabular}
 \end{center} 
 
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Desea que haya un esfuerzo por respetar a los países en los que su legislación no permite que directamente se ingrese al sitio. El cree que el filtro por ip es una solución insuficiente, debido a la proliferación de vpns (él lo hace con Netflix todo el tiempo)..\\  \hline
+  \textbf{Descripción} & Desea que haya un esfuerzo por respetar a los países en los que su legislación no permite que directamente se ingrese al sitio.\\  \hline
   \textbf{Fuente} & UNA FUENTE\\  \hline
   \textbf{Estímulo} & UN ESTIMULO.\\  \hline
   \textbf{Entorno} & UN ENTORNO\\  \hline
@@ -85,30 +59,18 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Requiere que sea fácil desactivar una cuenta por un tiempo (sin poder reactivarla), para ayudar a que un adicto en recuperación no pueda tener una recaída. Que aplique para eso usuario lo mismo que para los países en los que no está disponible el sitio.\\  \hline
+  \textbf{Descripción} & Se requiere que sea fácil desactivar una cuenta por un tiempo, para ayudar a los adictos en recuperación.\\  \hline
   \textbf{Fuente} & Usuario adicto\\  \hline
   \textbf{Estímulo} & Un usuario adicto intenta conectarce.\\  \hline
   \textbf{Entorno} & Normal\\  \hline
   \textbf{Artefacto} & Sistema\\  \hline
   \textbf{Respuesta} & Se bloquea el acceso al sistema.\\  \hline
-  \textbf{Medición} & En el 99\% de los casos que un usuario adicto intenta conectarse se le prohibe (bloquea) el acceso al sistema.\\  \hline
+  \textbf{Medición} & El 99,99\% de los casos que un usuario adicto intenta conectarse desde una cuenta desactivada el acceso al sistema es bloqueado.\\  \hline
   \end{tabular}
 \end{center} 
 
 
 
-\begin{center}
-  \begin{tabular}{| l | p{10cm} | }
-    \hline
-  \textbf{Descripción} & Su empresa colabora con todo lo que sea posible para ayudar a construir el módulo encargado de hacer el streaming del engine 3d cuando no puede usarse ninguno de los dos.\\  \hline
-  \textbf{Fuente} & Usuario\\  \hline
-  \textbf{Estímulo} & Visualizacion de una simulacion.\\  \hline
-  \textbf{Entorno} & Ninguno de los motores graficos esta disponible\\  \hline
-  \textbf{Artefacto} & Sistema\\  \hline
-  \textbf{Respuesta} & Se activa la visualizacion de streaming 3D de la simulacion.\\  \hline
-  \textbf{Medición} & En el 99\% de los casos se hace el streaming sin inconvenientes.\\  \hline
-  \end{tabular}
-\end{center} 
 
 
 \subsection{Modificabilidad}
@@ -116,7 +78,7 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Debe ser posible adaptar nuevas reglamentaciones, que se apliquen independientemente en cada pais.\\  \hline
+  \textbf{Descripción} & El simulador debe poder extenderse para soportar reglamentaciones nuevas ya que se espera poder incluir pa'ises adicionales.\\  \hline
   \textbf{Fuente} & UNA FUENTE\\  \hline
   \textbf{Estímulo} & UN ESTIMULO.\\  \hline
   \textbf{Entorno} & UN ENTORNO\\  \hline
@@ -129,7 +91,7 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & El sistema debe poder correr en distintas plataformas, con lo cual se deben poder introducir cambios con este fin.\\  \hline
+  \textbf{Descripción} & El sistema debe correr en la mayor cantidad de plataformas posible. El sistema debe poder extenderse f'acilmente para incluir nueva.\\  \hline
   \textbf{Fuente} & UNA FUENTE\\  \hline
   \textbf{Estímulo} & UN ESTIMULO.\\  \hline
   \textbf{Entorno} & UN ENTORNO\\  \hline
@@ -142,7 +104,7 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Deben poder crearse nuevos criterios para minar datos.\\  \hline
+  \textbf{Descripción} & Se deben poder agregar nuevos criterios para hacer data mining f'acilmente.\\  \hline
   \textbf{Fuente} & UNA FUENTE\\  \hline
   \textbf{Estímulo} & UN ESTIMULO.\\  \hline
   \textbf{Entorno} & UN ENTORNO\\  \hline
@@ -155,7 +117,7 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Deben poder crearse nuevos desafios en base a los datos minados.\\  \hline
+  \textbf{Descripción} & Deben poder crearse nuevos desaf'ios en base a los datos minados.\\  \hline
   \textbf{Fuente} & UNA FUENTE\\  \hline
   \textbf{Estímulo} & UN ESTIMULO.\\  \hline
   \textbf{Entorno} & UN ENTORNO\\  \hline
@@ -168,7 +130,7 @@
 \begin{center}
   \begin{tabular}{| l | p{10cm} | }
     \hline
-  \textbf{Descripción} & Se quiere poder controlar las publicidades en las simulaciones y el sitio en general.\\  \hline
+  \textbf{Descripción} & Se quiere poder controlar las publicidades en las simulaciones y el sitio en general en base a el tipo de audencia.\\  \hline
   \textbf{Fuente} & UNA FUENTE\\  \hline
   \textbf{Estímulo} & UN ESTIMULO.\\  \hline
   \textbf{Entorno} & UN ENTORNO\\  \hline
@@ -229,6 +191,8 @@
   \textbf{Medición} & UNA MEDICION\\  \hline
   \end{tabular}
 \end{center} 
+
+
 
 
 \subsection{Usabilidad}
