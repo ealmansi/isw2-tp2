@@ -194,28 +194,62 @@ Las redes sociales son constantemente sensadas por un \textit{administrador de r
 A continuacion listamos todos los atributos de calidad detallados en la seccion anterior y explicamos como hicimos para resolverlo en el diagrama de componentes y conectores.
 
 \begin{itemize}
-\item Atributo: El sistema debe evitar que los servidores superen su l'imite de clientes y se caigan.
-\item Justificaci'on: Los componentes \textit{router} que reciben las peticiones de un cliente mantienen contadores acerca de la carga de los servidores. Cuando detectan una posible sobrecarga consultan la cantidad de usuarios conectados a los servidores de una regi'on. Lo hacen consultando el repositorio \textit{usuarios conectados a desaf'io}. Si hay sobrecarga, no se responde a las peticiones.
+\item \textbf{Atributo:} El sistema debe evitar que los servidores superen su l'imite de clientes y se caigan.
+\item \textbf{Justificaci'}on: Los componentes \textit{router} que reciben las peticiones de un cliente mantienen contadores acerca de la carga de los servidores. Cuando detectan una posible sobrecarga consultan la cantidad de usuarios conectados a los servidores de una regi'on. Lo hacen consultando el repositorio \textit{usuarios conectados a desaf'io}. Si hay sobrecarga, no se responde a las peticiones.
 
-\item Atributo: Desea que haya un esfuerzo por respetar a los países en los que su legislación no permite que directamente se ingrese al sitio.
-\item Justificacion: Los \textit{router} que reciban peticiones provenientes de regiones no habilitadas, no ser'an resueltas. Las regiones no habilitadas se consultan en el repositorio \textit{regiones habilitadas para jugar}.
+\item \textbf{Atributo:} Desea que haya un esfuerzo por respetar a los países en los que su legislación no permite que directamente se ingrese al sitio.
+\item \textbf{Justificacion:} Los \textit{router} que reciban peticiones provenientes de regiones no habilitadas, no ser'an resueltas. Las regiones no habilitadas se consultan en el repositorio \textit{regiones habilitadas para jugar}.
 
-\item Atributo: Se requiere que sea fácil desactivar una cuenta por un tiempo, para ayudar a los adictos en recuperación.
-\item Justificacion: Se incluye un m'odulo para desactivar una cuenta, en el programa cliente.
+\item \textbf{Atributo:} Se requiere que sea fácil desactivar una cuenta por un tiempo, para ayudar a los adictos en recuperación.
+\item \textbf{Justificacion:} Se incluye un m'odulo para desactivar una cuenta, en el programa cliente.
 
-\item Atributo: El simulador debe poder extenderse para soportar reglamentaciones nuevas ya que se espera poder incluir pa'ises adicionales.
-\item Justificacion: La modificabilidad el simulador corre por cuenta de los desarolladores del mismo. En el caso del modo fantas'ia, cuya operatoria depende de nuestros desarrolladores, se incluye un repositorio con datos de configuraci'on para los partidos de dicho modo.
+\item \textbf{Atributo:} El simulador debe poder extenderse para soportar reglamentaciones nuevas ya que se espera poder incluir pa'ises adicionales.
+\item \textbf{Justificacion:} La modificabilidad el simulador corre por cuenta de los desarolladores del mismo. En el caso del modo fantas'ia, cuya operatoria depende de nuestros desarrolladores, se incluye un repositorio con datos de configuraci'on para los partidos de dicho modo.
 
-\item Atributo: El sistema debe correr en la mayor cantidad de plataformas posible. El sistema debe poder extenderse f'acilmente para incluir nuevas plataformas.
-\item Justificacion: La arquitectura del sistema no asume requerimientos de hardware o software (salvo algunos muy b'asicos) sobre el cliente. Para poder soportar todo el abanico de dispositivos, desde aquellos con recursos de hardware y software limitados como aquellos de altas prestaciones, se incluyen dos motores gr'aficos, uno 3D (de altos requerimientos) y otro 2D (de bajos requerimientos). La decisi'on sobre cu'al utilizar se toma en base a los recursos disponibles al momento de la recepci'on de los resultados de la simulaci'on.
+\item \textbf{Atributo:} El sistema debe correr en la mayor cantidad de plataformas posible. El sistema debe poder extenderse f'acilmente para incluir nuevas plataformas.
+\item \textbf{Justificacion:} La arquitectura del sistema no asume requerimientos de hardware o software (salvo algunos muy b'asicos) sobre el cliente. Para poder soportar todo el abanico de dispositivos, desde aquellos con recursos de hardware y software limitados como aquellos de altas prestaciones, se incluyen dos motores gr'aficos, uno 3D (de altos requerimientos) y otro 2D (de bajos requerimientos). La decisi'on sobre cu'al utilizar se toma en base a los recursos disponibles al momento de la recepci'on de los resultados de la simulaci'on.
 
-\item Atributo: 
-\item Justificacion:
+%\item Atributo: Se deben poder agregar nuevos criterios para hacer data mining f'acilmente.
+%\item Justificacion:
 
-\item Atributo: 
-\item Justificacion:
+%\item Atributo: Deben poder crearse nuevos desaf'ios en base a los datos minados, las estad'isticas disponibles de los usuarios.
+%\item Justificacion:
 
-\item Atributo: 
-\item Justificacion:
+\item \textbf{Atributo:} Se quiere poder controlar las publicidades en las simulaciones y el sitio en general en base a el tipo de audencia.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} La simulaci'on debe poder mejorarse para que sea m'as realista de manera incremental sin que los cambios sean costosos.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} Los datos de pago deben guardarse para que el usuario s'olo tenga que actualizarlos espor'adicamente.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:}  La interfaz gr'afica de los usuarios debe ser similar a la de un videojuego (sobre toda al momento de ver a los jugadores, las jugadas de los técnicos, colocar el nombre y logo del equipo del participante, con animaciones y efectos especiales con aceleración gráfica).
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} Los administradores deben poder definir a trav'es de un ABM qu'e ads mostrar seg'un el tipo de audiencia.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} La calidad del streaming debe adaptarse al bandwidth disponible para que la reproducci'on del video sea fluida.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} Se debe utilizar el engine 3D siempre que sea posible. Si el cliente no lo soporta adecuadamente debe utilizarse el 2D.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} Los desf'ios globales que requiere el streaming a m'ultiples regiones simult'aneamente debe funcionar satisfactoriamente. La experiencia del usuario no debe verse afectada.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} Los pagos y las credenciales de pago de los usuarios deben manejarse con seguridad, debe impedirse que hackers redireccionen los pagos o interfieran con las transacciones.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} Los datos de usuarios deben estar protegidos contra robos. Tiene que asegurarse la confidencialidad e integridad de los mismos.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} Los m'odulos de las simulaciones deben porder ser inspeccionados f'acilmente por entes de control externos. Se deben poder reproducir las simulaciones en sistemas testigos para verificar que los resultados no son fraudulentos.
+\item \textbf{Justificacion:}
+
+\item \textbf{Atributo:} Todas las transacciones de dinero deben estar logueadas de manera segura para poder presentarlas como evidencia a las autoridades de cada regi'on.
+\item \textbf{Justificacion:}
+
 \end{itemize}
 
