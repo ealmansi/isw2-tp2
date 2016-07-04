@@ -1,14 +1,14 @@
 
 \section{Arquitectura}
-\subsection{Conectores}
-\subsubsection{Notacion}
+\subsection{Conectores propios}
+\subsubsection{Notaci'on}
 
 \begin{itemize}
 \item Pipe \includegraphics[height=0.5cm]{diagramas/NPIPE} 
 \item HC (Holy Connector) \includegraphics[height=0.5cm]{diagramas/NHC} 
+\item AHC (Asynchronous Holy Connector) \includegraphics[height=0.5cm]{diagramas/NHCCA}
 \item HVC (Holy Video Connector) \includegraphics[height=0.5cm]{diagramas/NHVC} 
 \item HDC (Holy Data Connector) \includegraphics[height=0.5cm]{diagramas/NHDC} 
-\item HCCA (Holy Connector Call Asincronico) \includegraphics[height=0.5cm]{diagramas/NHCCA} 
 
 \end{itemize}
 
@@ -16,33 +16,36 @@
 
 \includegraphics[height=9cm]{diagramas/HC} 
 
-Este conector es un conector seguro, donde se tiene de cada extremo de la comunicacion un componente \textbf{comunicador} y entre ellos se comunican por un canal NO SEGURO. 
-Por lo tanto de ambos lados nos vemos obligados a poner un componente de checksum, para conseguir la integridad de la informacion, un componente de encriptacion y desencriptacion, para poder lograr la confidencialidad y un componente que pantenemos el \textbf{estado de la comunicacion} con el cual ....
-Es importante ver que entre los dos extremos utilizamos el conector de client-server, entonces cuando usemos el Holy Connector vamos a estar usando implicitamente un client-server.
+Este conector provee:
 
+\begin{itemize}
+	\item \textbf{Seguridad.} Mediante un componente de encriptaci'on y desencriptaci'on de los datos enviados.
+	\item \textbf{Integridad.} Mediante un componente de checksum.
+	\item \textbf{Confiabilidad de la conexi'on.} Mediante un componente que mantiene el estado de la conexi'on. Por ejemplo, este componente podr'ia implementar el protocolo TCP.
+\end{itemize}
+
+Observemos que entre los extremos utilizamos un conector tipo client-server que, asumimos, que se extiende sobre un medio inseguro. Por lo tanto, podemos pensar al Holy Connector como un cliente-server seguro, sobre un medio inseguro.
+
+\subsubsection{AHC (Asynchronous Holy Connector)}
+
+\includegraphics[height=9cm]{diagramas/HCCA} 
+
+Id'entico al Holy Connector, con la diferencia de que en lugar de usar un client-server como conector intermedio, utilizamos un conector de call asincr'onico.
 
 \subsubsection{HVC (Holy Video Connector)}
 
 \includegraphics[height=5cm]{diagramas/HVC} 
 
+Contamos en ambos extremos con comunicadores de streaming, que se comunican mediante un Holy Connector. Adicionalmente tenemos, en ambos extremos, compresores adecuados, para que la tasa de cantidad de informaci'on transmitida sea m'as alta.
 
-Contamos en ambos extremos con comunicadores de streaming que se comunican por conector Holy Connector (seguro) y tambien, en ambos lados tenemos compresores, para que en la transimicion no se transmita el streaming en si, sino una version comprimida.
-En ambos extremos tenemos pipe como conectores de entrada a los componentes, esto es para hacer un \textbf{buffer} y cada tanto mandar muchos datos juntos, de esta forma evitamos los tipicos \textbf{buffering...} en los streaming.
+En ambos extremos tenemos, adem'as, pipes como conectores de entrada y salida. Este buffering permite el env'io y recepci'on de datos flu'ida (evita los tipicos mensajes ``\textbf{buffering...}'').
 
 
 \subsubsection{HDC (Holy Data Connector)}
 
 \includegraphics[height=5cm]{diagramas/HDC} 
 
-Contamos en ambos extremos con comunicadores de streaming que se comunican por conector Holy Connector (seguro) y tambien, en ambos lados tenemos compresores, para que en la transimicion no se transmita el streaming en si, sino una version comprimida.
-En ambos extremos tenemos pipe como conectores de entrada a los componentes, esto es para hacer un \textbf{buffer} y cada tanto mandar muchos datos juntos, de esta forma evitamos los tipicos \textbf{buffering...} en los streaming.
-
-
-\subsubsection{HCCA (Holy Connector Call Asincronico)}
-
-\includegraphics[height=9cm]{diagramas/HCCA} 
-
-Este conector es identico al Holy Connector, con la diferencia de que en lugar de usar un Client-Server como conector intermedio, utilizamos un conector \textbf{Asincronico}.
+An'alogo al HVC, pero con compresores adecuados para texto en lugar de video. 
 
 \subsection{Arquitectura de datacenters}
 
@@ -62,6 +65,9 @@ Cada servidor tiene un componente, denominado \textit{agente}. Un agente es la i
 Este esquema de distribuci'on de datos sobre servidores es lo que permite que el sistema sea escalable. Adem'as provee otras bondades como capacidad de replicaci'on de datos, necesario para tener alta disponibilidad. M'as a'un, es posible implementar distribuci'on de datos entre datacenters, haciendo que el conjunto de servidores est'e distribu'ido en m'as de un datacenter. Esto se muestra en la siguiente figura.
 
 \includegraphics[width=15cm]{diagramas/datacenterx2.png}
+
+\noident
+De esta forma podemos implementar replicaci'on de datos entre datacenters, y as'i si un datacenter se cae, no perdemos datos ni capacidad de proveer servicio a una regi'on.
 
 \subsection{Repositorios}
 
