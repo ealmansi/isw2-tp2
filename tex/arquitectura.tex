@@ -1,4 +1,3 @@
-
 \section{Arquitectura}
 \subsection{Conectores propios}
 \subsubsection{Notaci'on}
@@ -63,11 +62,29 @@ Los datos de la evoluci'on del partido provienen de los mismos servicios que nos
 
 El puntaje que se asigna a cada acci'on de cada deporte es un par'ametro que se encuentra en el repositorio \textit{puntajes por acci'on}.
 
-\textit{Con respecto a los desafíos, ahora pueden incluir un gran número de partidos, no sólo uno. En el caso de este nuevo modo ``liga fantasía tradicional'', podrían incluirse todos los partidos de una fecha determinada de una liga, o un salteado de un conjunto de fechas cualesquiera, o incluso la liga o torneo completo.}
+\textit{Con respecto a los desafíos, ahora pueden incluir un gran número de partidos, no sólo uno. En el caso de este nuevo modo liga fantasía tradicional, podrían incluirse todos los partidos de una fecha determinada de una liga, o un salteado de un conjunto de fechas cualesquiera, o incluso la liga o torneo completo.
 
-Los desaf'ios son creados por un cliente (un jugador) desde la pantalla de lista de desaf'ios, mediante el m'odulo \textit{creador de desaf'ios}. 'Este le env'ia un pedido al 
+En el caso de la simulación, se arman torneos de diferentes formatos (se elige al momento de plantearse el desafío, playoff, liga, combinado zonas, etc.) con todos los equipos participantes. En este último caso se agrega la duración total “artificial” del torneo en semanas, pues se pretende que los partidos no se resuelvan más de forma inmediata si no que puedan “vivirse” como los
+reales (más información luego).
+}
 
+Los desaf'ios son creados por un cliente (un jugador o un administrador) desde la pantalla de lista de desaf'ios, mediante el m'odulo \textit{creador de desaf'ios}. 'Este se comunica con un \textit{administrador de desaf'ios}, del lado del servidor, el cual, mediante el \textit{administrador de fixtures}, crea el fixture correspondiente al desaf'io. El fixture puede tener diversas formas, dependiendo del tipo de desaf'io creado, por ejemeplo una liga, un torneo o un partido individual. El fixture es escrito en el repositorio \textit{fixtures de desaf'ios}.
 
+Para que los desaf'ios se puedan extender a lo largo del tiempo, y se puedan vivir como si fuesen reales, existe la posibilidad de que los partidos de un desaf'io comiencen en distintos momentos. Esta informaci'on se incluye en el fixture.
+
+Como los partidos comienzan en distintos momentos, el sistema contiene un m'odulo \textit{dispatcher de partidos simulaci'on} que sensa regularmente los fixtures, buscando los pr'oximos partidos a ejecutarse. Cuando llega la hora de ejecutar un partido, le informa al \textit{simulador de partido} que debe comenzar a ejecutar una simulaci'on. Le transmite la informaci'on de los equipos y los datos de los usuarios involucrados. Cuando el simulador concluye la ejecuci'on, le informa el resultado al \textit{procesador de resultados}.
+
+Por un lado, este m'odulo le comunica al \textit{administrador de pagos} el ganador y el perdedor del partido, para que 'este efect'ue los d'ebitos y pagos correspondientes, seg'un las apuestas. Las apuestas se encuentran en el repositorio \textit{apuestas por partido en ejecuci'on}. Con toda esta informaci'on, el administrador de pagos le indica al sistema de pagos externo, las transacciones a realizarse.
+
+Por otro lado, al terminar la simulaci'on, se le informa al administrador de fixtures c'omo debe modificar el fixture. Otros repositorios tambi'en son modificados adecuadamente.
+
+\textit{No sólo los jugadores pueden crear desafíos, sino que administradores propios del sitio pueden crearlos. Queda claro, que ahora los desafíos pueden ser aceptados por miles de jugadores, que competirán cada uno con su equipo para salir vencedor.}
+
+Los desaf'ios pueden ser creados desde un programa cliente hecho espec'ificamente para administradores.
+
+\textit{
+Cada desafío tendrá un chat general para intercambiar mensajes con otros participantes, además de las conversaciones que podrá tener con competidores amigos a modo de ``Instant Messenger'' a través de la plataforma.
+}
 
 \subsubsection{Arquitectura de datacenters}
 
