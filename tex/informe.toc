@@ -16,8 +16,8 @@
 \contentsline {section}{\numberline {5}Atributos de calidad}{13}{section.5}
 \contentsline {subsection}{\numberline {5.1}Disponibilidad}{13}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}Modificabilidad}{14}{subsection.5.2}
-\contentsline {subsection}{\numberline {5.3}Usabilidad}{16}{subsection.5.3}
-\contentsline {subsection}{\numberline {5.4}Performance}{17}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.3}Usabilidad}{15}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Performance}{16}{subsection.5.4}
 \contentsline {subsection}{\numberline {5.5}Seguridad}{17}{subsection.5.5}
 \contentsline {section}{\numberline {6}Arquitectura}{19}{section.6}
 \contentsline {subsection}{\numberline {6.1}Conectores}{19}{subsection.6.1}
@@ -26,8 +26,9 @@
 \contentsline {subsubsection}{\numberline {6.1.3}HVC (Holy Video Connector)}{20}{subsubsection.6.1.3}
 \contentsline {subsubsection}{\numberline {6.1.4}HDC (Holy Data Connector)}{20}{subsubsection.6.1.4}
 \contentsline {subsubsection}{\numberline {6.1.5}HCCA (Holy Connector Call Asincronico)}{21}{subsubsection.6.1.5}
-\contentsline {subsection}{\numberline {6.2}Repositorios}{21}{subsection.6.2}
-\contentsline {subsection}{\numberline {6.3}Diagrama}{22}{subsection.6.3}
-\contentsline {subsection}{\numberline {6.4}Explicaci\IeC {\'o}n}{22}{subsection.6.4}
-\contentsline {subsubsection}{\numberline {6.4.1}General}{22}{subsubsection.6.4.1}
-\contentsline {subsubsection}{\numberline {6.4.2}Atributos de Calidad vs Arquitectura}{22}{subsubsection.6.4.2}
+\contentsline {subsection}{\numberline {6.2}Arquitectura de datacenters}{21}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Repositorios}{23}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Diagrama}{23}{subsection.6.4}
+\contentsline {subsection}{\numberline {6.5}Explicaci\IeC {\'o}n}{23}{subsection.6.5}
+\contentsline {subsubsection}{\numberline {6.5.1}General}{23}{subsubsection.6.5.1}
+\contentsline {subsubsection}{\numberline {6.5.2}Atributos de Calidad vs Arquitectura}{24}{subsubsection.6.5.2}
