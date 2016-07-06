@@ -4,16 +4,18 @@
 
 \begin{itemize}
 \item Pipe \includegraphics[height=0.6cm]{diagramas/NPIPE} 
-\item HC (Holy Connector) \includegraphics[height=0.5cm]{diagramas/NHC} 
-\item AHC (Asynchronous Holy Connector) \includegraphics[height=0.5cm]{diagramas/NHCCA}
-\item HVC (Holy Video Connector) \includegraphics[height=0.5cm]{diagramas/NHVC} 
-\item HDC (Holy Data Connector) \includegraphics[height=0.5cm]{diagramas/NHDC} 
+\item Holy Connector \includegraphics[height=0.5cm]{diagramas/NHC} 
+\item Asynchronous Holy Connector \includegraphics[height=0.5cm]{diagramas/NHCCA}
+\item Holy Video Connector \includegraphics[height=0.5cm]{diagramas/NHVC} 
+\item Holy Data Connector \includegraphics[height=0.5cm]{diagramas/NHDC} 
 
 \end{itemize}
 
-\subsubsection{HC (Holy Connector)}
+\subsubsection{Holy Connector}
 
-\includegraphics[height=9cm]{diagramas/HC} 
+\begin{center}
+	\includegraphics[height=7cm]{diagramas/HC} 
+\end{center}
 
 Este conector provee:
 
@@ -25,26 +27,28 @@ Este conector provee:
 
 Observemos que entre los extremos utilizamos un conector tipo client-server que, asumimos, que se extiende sobre un medio inseguro. Por lo tanto, podemos pensar al Holy Connector como un cliente-server seguro, sobre un medio inseguro.
 
-\subsubsection{AHC (Asynchronous Holy Connector)}
+\subsubsection{Asynchronous Holy Connector}
 
-\includegraphics[height=9cm]{diagramas/HCCA} 
+\includegraphics[height=7cm]{diagramas/HCCA} 
 
 Id'entico al Holy Connector, con la diferencia de que en lugar de usar un client-server como conector intermedio, utilizamos un conector de call asincr'onico.
 
-\subsubsection{HVC (Holy Video Connector)}
+\subsubsection{Holy Video Connector}
 
-\includegraphics[height=5cm]{diagramas/HVC} 
+\includegraphics[height=4cm]{diagramas/HVC} 
 
-Contamos en ambos extremos con comunicadores de streaming, que se comunican mediante un Holy Connector. Adicionalmente tenemos, en ambos extremos, compresores adecuados, para que la tasa de cantidad de informaci'on transmitida sea m'as alta.
+Contamos en ambos extremos con comunicadores de streaming, que se comunican mediante un Asynchronous Holy Connector. Adicionalmente tenemos, en ambos extremos, compresores adecuados, para que la tasa de informaci'on transmitida por unidad de tiempo sea m'as alta. As'i, se puede transmitir video de m'as alta calidad, en tiempo razonable.
 
-En ambos extremos tenemos, adem'as, pipes como conectores de entrada y salida. Este buffering permite el env'io y recepci'on de datos flu'ida (evita los tipicos mensajes ``\textbf{buffering...}'').
+Un detalle importante es que haremos un peque\~no abuso de la funcionalidad del Asynchronous Holy Connector, asumiendo que al utilizarlo como conector aqu'i, en el Holy Video Connector, no se utiliza el componente de checksum. Hacemos 'esto para evitar definir un componente id'entico al Asynchronous Holy Connector pero sin el componente de checksum. La raz'on por la que no queremos usar 'este componente, es que no nos interesan chequeos de integridad, a lo largo de la comunicaci'on del flujo de datos. Por un lado, este chequeo demanda tiempo, que es escaso en el contexto de streaming. Por otro lado, no es necesario garantizar completa integridad, y se admiten peque\~nas diferencias entre los datos enviados y los recibidos.
+
+En ambos extremos tenemos, adem'as, pipes como conectores de entrada y salida. Este buffering permite el env'io y recepci'on de datos flu'ida (evita los tipicos mensajes ``\textit{buffering...}'').
 
 
-\subsubsection{HDC (Holy Data Connector)}
+\subsubsection{Holy Data Connector}
 
-\includegraphics[height=5cm]{diagramas/HDC} 
+\includegraphics[height=4cm]{diagramas/HDC} 
 
-An'alogo al HVC, pero con compresores adecuados para texto en lugar de video. 
+An'alogo al Holy Video Connector, pero con compresores adecuados para texto en lugar de video. Al igual que antes, asumimos que no se utiliza el componente de checksum en el conector que vincula los extremos.
 
 \subsection{Diagrama}
 
@@ -182,33 +186,37 @@ Es importante que no sólo los participantes puedan acceder a su estado de cuent
 
 Todos los programas cliente de tipo administrador cuentan con un \textit{administrador de cuentas de usuario}, que permite visualizar toda la informaci'on disponible sobre los usuarios.
 
-Se garantiza la seguridad de las transacciones utilizando Holy Connectors, que garantizan seguridad. Todas las transacciones pueden ser listadas tanto por usuarios como administradores, a trav'es del \textit{listador de transacciones}, el cual consulta el repositorio de \textit{transacciones}.
+Se garantiza la seguridad de las transacciones utilizando conectores Holy, que garantizan seguridad. Todas las transacciones pueden ser listadas tanto por usuarios como administradores, a trav'es del \textit{listador de transacciones}, el cual consulta el repositorio de \textit{transacciones}.
 
 \textbf{\textit{Por último, se sabe que la legislación de varios países prohíbe el acceso a este tipo de juegos. Dependiendo del caso, se deberá evitar que: directamente el usuario acceda al sitio o que no puedan registrarse o bien registrarse, pero sólo jugar los desafíos gratuitos sin poder ganar premios o pudiendo ganar premios que no sean sumas de dinero.}}
 
-Cuando un usuario solicita registrarse en el sistema, un componente \textit{registrador} verifica que el usuario pertenezca a una regi'on habilitada para jugar. Dicha informaci'on se encuentra en el repositorio \textit{regiones habilitadas para jugar y/o apostar}. An'alogamente, cuando un usuario solicita inscribirse a un desaf'io, el administrador de desaf'ios chequea contra mismo el repositorio, que el usuario efectivamente tenga permiso para apostar.
+Cuando un usuario solicita registrarse en el sistema, un componente \textit{registrador} verifica que el usuario pertenezca a una regi'on habilitada para jugar. Dicha informaci'on se encuentra en el repositorio \textit{regiones habilitadas para jugar/apostar}. An'alogamente, cuando un usuario solicita inscribirse a un desaf'io, el administrador de desaf'ios chequea contra mismo el repositorio, que el usuario efectivamente tenga permiso para apostar.
 
 \subsection{Repositorios distribuidos}
 
 A continuaci'on listamos la informaci'on contenida en cada uno de los repositorios. Recordemos que todos ellos forman parte de un esquema de almacenamiento de datos distribu'ido. Conocer exactamente qu'e informaci'on tiene a disposici'on el sistema, es 'util para comprender sus capacidades.
 
 \begin{itemize}
-	\item \textbf{Apuestas por partido.} Contiene las apuestas involucradas en cada partido en ejecuci'on.
-	\item \textbf{Partidos pendientes y en ejecucion.} Contiene los partidos (tanto de desaf'io simulaci'on como fantas'ia) que est'an pendientes y en ejecuci'on.
+	\item \textbf{Ranking de usuarios.} Contiene el ranking de los usuarios de la regi'on.
+	\item \textbf{Apuestas por partido en ejecuci'on.} Contiene las apuestas involucradas en cada partido en ejecuci'on.
 	\item \textbf{Servidores simulando o transmitiendo partido.} Contiene los servidores que est'an simulando o transmitiendo cada partido.
-	\item \textbf{Estad'isticas de jugador.} Contiene informaci'on estad'istica, como por ejemplo la cantidad de partidos ganados y perdidos, de cada jugador.
+	\item \textbf{Partidos pendientes y en juego.} Contiene los partidos (tanto de desaf'io simulaci'on como fantas'ia) que est'an pendientes y en ejecuci'on.
+	\item \textbf{Regiones habilitadas para jugar/apostar.} Contiene las regiones a las que se les puede prestar servicio.
+	\item \textbf{Estad'isticas de usuario.} Contiene informaci'on estad'istica, como por ejemplo la cantidad de partidos ganados y perdidos, de cada jugador.
 	\item \textbf{Informaci'on de eventos reales.} Contiene toda la informaci'on sobre eventos reales en los que se basan partidos fantas'ia.
-	\item \textbf{Usuarios conectados a desaf'io.} Contiene ID e IP de los usuarios actualmente conectados a la sala de un desaf'io.
-	\item \textbf{Regiones habilitadas para jugar.} Contiene las regiones a las que se les puede prestar servicio.
+	\item \textbf{Usuarios conectados a partido.} Contiene ID e IP de los usuarios actualmente conectados a la sala de un desaf'io.
 	\item \textbf{Regiones habilitadas para transmisi'on de partidos fantas'ia.} Contiene las regiones a las que se les puede transmitir un partido real desde 'esta regi'on.
-	\item \textbf{Datos de jugador.} Contiene los datos de un jugador de la regi'on.
+	\item \textbf{Datos de cuenta de usuario.} Contiene los datos de un jugador de la regi'on.
 	\item \textbf{Estado de partido en ejecuci'on.} Contiene los datos de estado, por ejemplo puntaje de cada equipo, de los partidos que se est'an ejecutando en este momento.
 	\item \textbf{Fixtures de desaf'ios.} Contiene los fixtures actualizados de los desaf'ios que a'un no acabaron. En particular, contiene los fixtures de los desaf'ios que a'un no han empezado.
 	\item \textbf{Puntaje por acciones.} Contiene informaci'on sobre los par'ametros que se utilizan para puntuar las acciones que ocurren en un partido fantas'ia.
-	\item \textbf{Premios por desaf'io.} Contiene los premios (monetarios y no monetarios) que se otorgan a los participantes desaf'ios que a'un no han acabado.
 	\item \textbf{M'etodos de pago.} Contiene la informaci'on sobre los servicios de pago que se aceptan en 'esta regi'on.
 	\item \textbf{Informaci'on de redes sociales.} Contiene la informaci'on m'as reciente descargada de redes sociales.
 	\item \textbf{Publicidades.} Contiene las publicidades m'as recientes recibidas desde los proveedores de publicidad.
+	\item \textbf{Transacciones.} Contiene registro de todas las transacciones (debitos y acreditaciones) realizadas por el sistema.
+	\item \textbf{Premios por desaf'io.} Contiene los premios (monetarios y no monetarios) que se otorgan a los participantes desaf'ios que a'un no han acabado.
+	\item \textbf{Estad'isticas de deportista.} Contiene la informaci'on estad'istica de los deportistas que los simuladores usan durante su ejecuci'on.
+	
 \end{itemize}
 
 \subsubsection{Atributos de Calidad vs Arquitectura}
