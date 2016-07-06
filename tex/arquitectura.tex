@@ -20,8 +20,8 @@
 Este conector provee:
 
 \begin{itemize}
-	\item \textbf{Seguridad.} Mediante un componente de encriptaci'on y desencriptaci'on de los datos enviados.
-	\item \textbf{Integridad.} Mediante un componente de checksum.
+	\item \textbf{Confidencialidad} Mediante un componente de encriptaci'on de un extremo, y uno de desencriptaci'on del otro, de los datos enviados.
+	\item \textbf{Integridad} Mediante un componente de checksum.
 	\item \textbf{Confiabilidad de la conexi'on.} Mediante un componente que mantiene el estado de la conexi'on. Por ejemplo, este componente podr'ia implementar el protocolo TCP.
 \end{itemize}
 
@@ -31,24 +31,22 @@ Observemos que entre los extremos utilizamos un conector tipo client-server que,
 
 \includegraphics[height=7cm]{diagramas/HCCA} 
 
-Id'entico al Holy Connector, con la diferencia de que en lugar de usar un client-server como conector intermedio, utilizamos un conector de call asincr'onico.
+Id'entico al Holy Connector, con la diferencia de que en lugar de usar un client-server como conector intermedio, utiliza un conector de call asincr'onico.
 
 \subsubsection{Holy Video Connector}
 
 \includegraphics[height=4cm]{diagramas/HVC} 
 
-Contamos en ambos extremos con comunicadores de streaming, que se comunican mediante un Asynchronous Holy Connector. Adicionalmente tenemos, en ambos extremos, compresores adecuados, para que la tasa de informaci'on transmitida por unidad de tiempo sea m'as alta. As'i, se puede transmitir video de m'as alta calidad, en tiempo razonable.
-
+Cuenta en ambos extremos con comunicadores de streaming, 'estos se comunican mediante un Holy Connector. Adem'a cuenta en ambos extremos con compresores de video para aumentar el throughput de la transmisi'on.
 Un detalle importante es que haremos un peque\~no abuso de la funcionalidad del Asynchronous Holy Connector, asumiendo que al utilizarlo como conector aqu'i, en el Holy Video Connector, no se utiliza el componente de checksum. Hacemos 'esto para evitar definir un componente id'entico al Asynchronous Holy Connector pero sin el componente de checksum. La raz'on por la que no queremos usar 'este componente, es que no nos interesan chequeos de integridad, a lo largo de la comunicaci'on del flujo de datos. Por un lado, este chequeo demanda tiempo, que es escaso en el contexto de streaming. Por otro lado, no es necesario garantizar completa integridad, y se admiten peque\~nas diferencias entre los datos enviados y los recibidos.
 
-En ambos extremos tenemos, adem'as, pipes como conectores de entrada y salida. Este buffering permite el env'io y recepci'on de datos flu'ida (evita los tipicos mensajes ``\textit{buffering...}'').
-
+Los conectores de entrada y salida a los respectivos Comunicadores de Streaming de vide son pipes. El buffering que 'estos proveen permite que la experiencia del usuario no se vea afectada por las posibles fluctuaciones del caudal de la transmisi'on (evita que el usuario vea interrumpido su video porque el mismo est'a ``\textbf{Cargando...}'').
 
 \subsubsection{Holy Data Connector}
 
 \includegraphics[height=4cm]{diagramas/HDC} 
 
-An'alogo al Holy Video Connector, pero con compresores adecuados para texto en lugar de video. Al igual que antes, asumimos que no se utiliza el componente de checksum en el conector que vincula los extremos.
+An'alogo al HVC, pero con compresores de texto en lugar de compresores de video. Al igual que antes, asumimos que no se utiliza el componente de checksum en el conector que vincula los extremos.
 
 \subsection{Diagrama}
 
@@ -63,14 +61,14 @@ El siguiente diagrama muestra lo descripto.
 \includegraphics[width=15cm]{diagramas/datacenter.png}
 
 \noindent
-El datacenter de la figura tiene dos routers, que procesan pedidos para dos regiones. Cada regi'on se compone de tres servidores. Notar que una de las regiones contiene dos tipos de repositorios, A1 y A2. Estos repositorios aparecen en todos los servidores de la regi'on, debido a que los datos est'an distribuidos sobre todos estos servidores. An'alogamente, los servidores de la otra regi'on, tienen repositorios B1 y B2, distribuidos. Cada servidor tiene un \textit{motor de bases de datos distribuidas}, que administra el acceso a los repositorios distribu'idos.
+El datacenter de la figura tiene dos routers que procesan pedidos para dos regiones. Cada regi'on se compone de tres servidores. Notar que una de las regiones contiene dos tipos de repositorios, A1 y A2. Estos repositorios aparecen en todos los servidores de la regi'on, debido a que los datos est'an distribuidos sobre todos estos servidores. An'alogamente, los servidores de la otra regi'on, tienen repositorios B1 y B2, distribuidos. Cada servidor tiene un \textit{motor de bases de datos distribuidas}, que administra el acceso a los repositorios distribu'idos.
 
-Este esquema de distribuci'on de datos sobre servidores es lo que permite que el sistema sea escalable. Adem'as provee otras bondades como capacidad de replicaci'on de datos, necesario para tener alta disponibilidad. M'as a'un, es posible implementar distribuci'on de datos entre datacenters, si hacemos que el conjunto de servidores de una regi'on est'e distribu'ido en m'as de un datacenter. Esto se muestra en la siguiente figura.
+Este esquema de distribuci'on de datos sobre servidores es lo que permite que el sistema sea escalable. Adem'as provee otras bondades como capacidad de replicaci'on de datos, necesario para tener alta disponibilidad. M'as aun, es posible implementar distribuci'on de datos entre datacenters, si hacemos que el conjunto de servidores de una regi'on est'e distribuido en m'as de un datacenter. Esto se muestra en la siguiente figura.
 
 \includegraphics[width=15cm]{diagramas/datacenterx2.png}
 
 \noindent
-En particular, de esta forma podemos implementar replicaci'on de datos entre datacenters, y as'i si un datacenter se cae, no perdemos datos ni capacidad de proveer servicio a una regi'on.
+De esta forma podemos replicar datos entre distintos datacenters, lo cual permite a la arquitectura soportar la ca'ida de uno de ellos sin sufrir p'erdidas de datos ni dejar de proveer servicio a una regi'on.
 
 \subsubsection{Descripci'on general}
 
@@ -78,7 +76,7 @@ Para describir la arquitectura, optamos por explicar c'omo se satisface cada una
 
 \textbf{\textit{Lo primero que se pretende es que abarque varios de los deportes colectivos más populares del planeta. Además del ya citado básquet, deberá incorporar a las ligas de fútbol, hockey, rugby, béisbol y fútbol americano que se determine tengan mayor número de seguidores (ej. el fútbol español o la NFL estadounidense), y que se consigan empresas que provean datos en tiempo real de la evolución del partido (tanto del desempeño de los jugadores como del partido en general). Esto último es importante porque además de la simulación de los mismos, ahora también se quiere incorporar un modo de liga de fantasía tradicional.}}
 
-Para agregar deportes, lo 'unico que se debe hacer es contratar nuevos servicios de transmisi'on de partidos, agregar nuevos par'ametros del juego (i. e. agregar datos al repositorio de \textit{puntajes por acci'on}), y agregar funcionalidad al \textit{administrador de desaf'ios} para que se puedan crear desaf'ios de 'este nuevo deporte.
+Para agregar deportes, lo 'unico que se debe hacer es contratar nuevos servicios de transmisi'on de partidos, agregar nuevos par'ametros de juego (i. e. agregar datos al repositorio de \textit{puntajes por acci'on}), y agregar funcionalidad al \textit{administrador de desaf'ios} para que se puedan crear desaf'ios del nuevo deporte.
 
 Los datos de la evoluci'on del partido provienen de los mismos servicios que nos transmiten partidos reales. Tanto los datos de un partido, como la transmisi'on del mismo nos son transmitidos en conjunto. Ver componente \textit{Servicio de transmisi'on de partido real}.
 
