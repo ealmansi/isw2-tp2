@@ -40,7 +40,7 @@ Id'entico al Holy Connector, con la diferencia de que en lugar de usar un client
 Cuenta en ambos extremos con comunicadores de streaming, 'estos se comunican mediante un Holy Connector. Adem'a cuenta en ambos extremos con compresores de video para aumentar el throughput de la transmisi'on.
 Un detalle importante es que haremos un peque\~no abuso de la funcionalidad del Asynchronous Holy Connector, asumiendo que al utilizarlo como conector aqu'i, en el Holy Video Connector, no se utiliza el componente de checksum. Hacemos 'esto para evitar definir un componente id'entico al Asynchronous Holy Connector pero sin el componente de checksum. La raz'on por la que no queremos usar 'este componente, es que no nos interesan chequeos de integridad, a lo largo de la comunicaci'on del flujo de datos. Por un lado, este chequeo demanda tiempo, que es escaso en el contexto de streaming. Por otro lado, no es necesario garantizar completa integridad, y se admiten peque\~nas diferencias entre los datos enviados y los recibidos.
 
-Los conectores de entrada y salida a los respectivos Comunicadores de Streaming de vide son pipes. El buffering que 'estos proveen permite que la experiencia del usuario no se vea afectada por las posibles fluctuaciones del caudal de la transmisi'on (evita que el usuario vea interrumpido su video porque el mismo est'a ``\textbf{Cargando...}'').
+Los conectores de entrada y salida a los respectivos Comunicadores de Streaming de video son pipes. El buffering que 'estos proveen permite que la experiencia del usuario no se vea afectada por las posibles fluctuaciones del caudal de la transmisi'on (evita que el usuario vea interrumpido su video porque el mismo est'a ``\textbf{Cargando...}'').
 
 \subsubsection{Holy Data Connector}
 
